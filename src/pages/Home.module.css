@@ -1,0 +1,31 @@
+
+.homeSection{
+
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header{
+    margin-bottom: 25px;
+}
+
+.headerWithSpace{
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.card{
+    margin: 15px 0;
+}
+
+.adContainer{
+    display: flex;
+    justify-content: center;
+    
+}

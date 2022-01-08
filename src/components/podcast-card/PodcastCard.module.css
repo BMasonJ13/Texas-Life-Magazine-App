@@ -1,0 +1,39 @@
+
+.card{
+    max-width: calc(315px - 8px);
+}
+
+.innerContainer{
+    padding: 30px 35px 15px 35px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.whiteIcon{
+    font-size: 1.5rem;
+    color: #EEEEEE;
+}
+
+.blackIcon{
+    font-size: 1.5rem;
+    color: #242424;
+}
+
+.title{
+    margin-top: 15px;
+    margin-left: -10px;
+    font-size: .875rem;
+    text-align: left;
+}
+
+.description{
+    margin-top: 5px;
+    text-align: left;
+}
+
+.time{
+    margin-top: 10px;
+    text-align: center;
+}

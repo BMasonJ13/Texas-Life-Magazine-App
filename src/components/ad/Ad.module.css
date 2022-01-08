@@ -1,0 +1,22 @@
+
+.long{
+    width: 100%;
+    height: 70px;
+}
+
+.square{
+    width: 128px;
+    height: 128px;
+}
+
+.longImage{
+    object-fit: cover;
+    width: 100%;
+    height: 70px;
+}
+
+.squareImage{
+    object-fit: cover;
+    width: 128px;
+    height: 128px;
+}

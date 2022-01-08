@@ -1,0 +1,42 @@
+
+.navigation{
+    display: flex;
+    align-content: center;
+}
+
+.logoContainer{
+  -webkit-tap-highlight-color: transparent;
+}
+
+.logo{
+    width: 70px;
+    padding: 15px;
+    margin: 15px;
+}
+
+.hamburger{
+     width: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px;
+    margin: 15px;
+    margin-left: auto;
+}
+
+.hamburger span{
+    display: block;
+    align-self: center;
+    width: 33px;
+    height: 4px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    position: relative;
+
+    background-color: #242424;
+    border-radius: 6px;
+    
+    transform-origin: 0 0;
+
+    transition: 0.4s;
+}

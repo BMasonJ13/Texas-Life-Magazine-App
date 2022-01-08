@@ -1,0 +1,45 @@
+
+:root{
+    --black: #242424;
+    --white: #EEEEEE;
+}
+
+.footer{
+    width: 100%;
+
+    background-color: var(--black);
+}
+
+.innerContainer{
+    padding: 50px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.logo{
+    width: 70px;
+    height: 73px;
+    align-self: center;
+}
+
+.socialMediaContainer{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+.icon{
+    color: var(--white);
+    padding: 10px;
+    margin: 0 10px;
+    font-size: 1.5rem;
+}
+
+.notice{
+    margin-top: 15px;
+}
