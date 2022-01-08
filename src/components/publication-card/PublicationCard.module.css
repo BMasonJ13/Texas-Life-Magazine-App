@@ -1,0 +1,29 @@
+
+.card{
+    max-width: calc(315px - 8px);
+}
+
+.innerContainer{
+    padding: 30px 48px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image{
+    width: 159px;
+    height: 206px;
+}
+.title{
+    margin-top: 10px;
+}
+
+.description{
+    margin-top: 10px;
+}
+
+.action{
+    margin-top: 20px;
+    padding: 10px 20px;
+}

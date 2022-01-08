@@ -1,12 +1,15 @@
 import React from 'react';
 
-import styles from './Footer.module.css'
-import textStyles from '../../shared-styles/TextStyles.module.css'
+//Subcomponents
+import Icon from '../sub/icon/Icon'
+import { Subtitle } from '../sub/text/Text'
+import * as Icons from '@fortawesome/free-brands-svg-icons'
 import { Link } from 'react-router-dom';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import * as Icons from '@fortawesome/free-brands-svg-icons'
+//CSS Modules
+import styles from './Footer.module.css'
 
+//Resources
 import TLMLogo from '../../res/TLMLogo.jpg'
 
 const Footer = () =>
@@ -16,10 +19,10 @@ const Footer = () =>
         <div className={styles.innerContainer}>
             <Link to="/"><img className={styles.logo} src={TLMLogo} alt='Texas Life Magazine Logo'/></Link>
             <div className={styles.socialMediaContainer}>
-                <FontAwesomeIcon className={styles.icon} icon={Icons.faFacebook} alt="facebook link" />
-                <FontAwesomeIcon className={styles.icon} icon={Icons.faInstagram} alt="facebook link" />
+                <Icon color="black" iconStyle={styles.icon} icon={Icons.faFacebook} alt="facebook link" />
+                <Icon color="black" iconStyle={styles.icon} icon={Icons.faInstagram} alt="instagram link" />
             </div>
-            <h2 className={textStyles.whiteSubtitle + " " + styles.notice}>&copy; 2022 Texas Life Magazine</h2>
+            <Subtitle color="black" textStyle={styles.notice}>&copy; 2022 Texas Life Magazine</Subtitle>
         </div>
     </footer>
     )

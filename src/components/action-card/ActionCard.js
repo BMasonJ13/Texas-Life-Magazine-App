@@ -1,20 +1,23 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
 
+//Subcomponents
+import Card from '../sub/card/Card'
+import {Header, Subtitle} from '../sub/text/Text'
+import Button from '../sub/button/Button'
+
+//CSS Modules
 import styles from './ActionCard.module.css'
-import textStyles from '../../shared-styles/TextStyles.module.css'
-import buttonStyles from '../../shared-styles/ButtonStyles.module.css'
 
-const ActionCard = ({title, description, actionText, path, cardStyle, black}) =>
+const ActionCard = ({title, description, actionText, path, cardStyle, color}) =>
 {
     return(
-        <div className={(black ? styles.blackCard : styles.whiteCard) + " " + styles.card + " " + cardStyle}>
+        <Card color={color} cardStyle={styles.card + " " + cardStyle}>
             <div className={styles.innerContainer}>
-                <h1 className={(black ? textStyles.whiteHeader : textStyles.blackHeader) + " " + styles.title}>{title}</h1>
-                <h3 className={(black ? textStyles.whiteSubtitle : textStyles.blackSubtitle) + " " + styles.subtitle}>{description}</h3>
-                <Link className={(black ? buttonStyles.whiteButton : buttonStyles.blackButton) + " " + styles.action} to={path}>{actionText}</Link>
+                <Header color={color} textStyle={styles.title}>{title}</Header>
+                <Subtitle color={color} textStyle={styles.subtitle}>{description}</Subtitle>
+                <Button color={color} buttonStyle={styles.action} path={path}>{actionText}</Button>
             </div>
-        </div>
+        </Card>
     )
 }
 

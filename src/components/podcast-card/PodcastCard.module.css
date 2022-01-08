@@ -11,16 +11,6 @@
     align-items: center;
 }
 
-.whiteIcon{
-    font-size: 1.5rem;
-    color: #EEEEEE;
-}
-
-.blackIcon{
-    font-size: 1.5rem;
-    color: #242424;
-}
-
 .title{
     margin-top: 15px;
     margin-left: -10px;

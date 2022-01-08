@@ -1,5 +1,13 @@
 
+@import '../../Constants.module.css';
+
 .navigation{
+    position: sticky;
+    top: 0;
+
+    background-color: var(--black);
+    border-bottom: 2px solid var(--white);
+
     display: flex;
     align-content: center;
 }
@@ -9,9 +17,9 @@
 }
 
 .logo{
-    width: 70px;
-    padding: 15px;
-    margin: 15px;
+    width: 50px;
+    padding: 5px 15px 5px 15px;
+    margin: 5px 15px;
 }
 
 .hamburger{
@@ -19,9 +27,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 15px;
-    margin: 15px;
+    padding: 5px 15px 5px 15px;
+    margin: 5px 15px;
     margin-left: auto;
+
+    z-index: 100;
 }
 
 .hamburger span{
@@ -33,10 +43,120 @@
     margin-bottom: 3px;
     position: relative;
 
-    background-color: #242424;
+    background-color: var(--white);
     border-radius: 6px;
     
     transform-origin: 0 0;
 
     transition: 0.4s;
 }
+
+.hamburger:hover span:nth-child(2){
+    transform: translateX(5px);
+    background-color: var(--logo-red);
+}
+
+
+.hamburger.isActive span:nth-child(1){
+    transform: translate(11px, -1px) rotate(405deg);
+}
+
+.hamburger.isActive span:nth-child(2){
+    opacity: 0;
+    transform: translateX(10px);
+}
+
+.hamburger.isActive span:nth-child(3){
+    transform: translate(8px, 3px) rotate(315deg);
+}
+
+.navItemContainer{
+    display: none;
+}
+
+.isActiveNav{
+    position: fixed;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--black);
+}
+
+.innerContainer{
+    display: flex;
+    flex-direction: column;
+
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+
+    margin-top: 100px;
+}
+
+.navItem{
+    height: 30px;
+    padding: 15px 0;
+
+    font-family: var(--website-font);
+    text-align: center;
+    color: var(--white);
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+.navItem:hover{
+    color: var(--logo-red);
+}
+
+.navItem.blueLink:hover{
+    color: var(--blue);
+}
+
+@media (min-width: 1024px){
+
+    .logo{
+        margin-top: 10px;
+        margin-left: 10px;
+        padding: 10px;
+    }
+
+    .hamburger{
+        display: none;
+    }
+
+    .navItemContainer{
+        width: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+    
+        justify-content: center;
+        align-content: center;
+    }
+
+    .innerContainer{
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .navItem{
+        z-index: 101;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        margin-left: 5px;
+        margin-right: 5px;
+        padding: 15px;
+
+        font-size: .8rem;
+    }
+
+    .first{
+        border-left: none;
+    }
+
+}
+

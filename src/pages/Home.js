@@ -1,26 +1,33 @@
 
 import React from 'react';
-import ArticleCard from '../components/article-card/ArticleCard';
-import Ad from '../components/ad/Ad'
 
-import textStyles from '../shared-styles/TextStyles.module.css'
-import styles from './Home.module.css'
+
+//Components
+import ArticleCard from '../components/article-card/ArticleCard';
 import ActionCard from '../components/action-card/ActionCard';
+import Ad from '../components/ad/Ad'
 import PodcastCard from '../components/podcast-card/PodcastCard';
+import PublicationCard from '../components/publication-card/PublicationCard';
+
+//Subcomponents
+import {Header} from '../components/sub/text/Text'
+
+import styles from './Home.module.css'
+
 
 const Home = () =>
 {
     return(
         <>
             <section className={styles.homeSection}>
-                <h1 className={textStyles.blackHeader + " " + styles.header}>Latest Articles</h1>
+                <Header color="white" textStyle={styles.header}>Latest Articles</Header>
                 <div className={styles.container}>
                     <ArticleCard
                     image="https://picsum.photos/1028"
                     title="Test Card"
                     description="This is a black test card!"
                     cardStyle={styles.card}
-                    black
+                    color="black"
                     />
                     <ArticleCard
                     image="https://picsum.photos/1028"
@@ -43,7 +50,7 @@ const Home = () =>
                     title="Test Card"
                     description="This is a black test card!"
                     cardStyle={styles.card}
-                    black
+                    color="black"
                     />
                     <ArticleCard
                     image="https://picsum.photos/1028"
@@ -82,7 +89,7 @@ const Home = () =>
             </section>
             <section className={styles.homeSection}>
                 <div className={styles.container}>
-                    <h1 className={textStyles.blackHeader + " " + styles.headerWithSpace}>Recent Podcasts</h1>
+                    <Header color="white" textStyle={styles.headerWithSpace}>Recent Podcasts</Header>
                     <PodcastCard 
                     title="Ep. 22 | The Legendary Coyote Store"
                     description="Join us as we discuss The Legenedary Coyote Store in Gail, Texas."
@@ -91,7 +98,7 @@ const Home = () =>
                     <PodcastCard
                         title="Ep. 22 | The Legendary Coyote Store"
                         description="Join us as we discuss The Legenedary Coyote Store in Gail, Texas."
-                        black
+                        color="black"
                         cardStyle={styles.card}
                     />
                     <PodcastCard
@@ -117,7 +124,7 @@ const Home = () =>
                         actionText="View Historic Articles"
                         cardStyle={styles.card}
                         path="/"
-                        black
+                        color="black"
                     />
                 </div>
                 <div className={styles.adContainer}>
@@ -131,7 +138,44 @@ const Home = () =>
             </section>
             <section className={styles.homeSection}>
                 <div className={styles.container}>
-                    
+                    <PublicationCard 
+                        image="https://picsum.photos/159/206"
+                        title="Decemeber-January 2021"
+                        description="This magazine features Jody Nix and the Texas Cowboys."
+                        path="/"
+                        color="black"
+                        cardStyle={styles.card}
+                    />
+                    <PublicationCard
+                        image="https://picsum.photos/159/206"
+                        title="Decemeber-January 2021"
+                        description="This magazine features Jody Nix and the Texas Cowboys."
+                        path="/"
+                        cardStyle={styles.card}
+                    />
+                    <PublicationCard
+                        image="https://picsum.photos/159/206"
+                        title="Decemeber-January 2021"
+                        description="This magazine features Jody Nix and the Texas Cowboys."
+                        path="/"
+                        color="black"
+                        cardStyle={styles.card}
+                    />
+                    <PublicationCard
+                        image="https://picsum.photos/159/206"
+                        title="Decemeber-January 2021"
+                        description="This magazine features Jody Nix and the Texas Cowboys."
+                        path="/"
+                        cardStyle={styles.card}
+                    />
+                </div>
+                <div className={styles.adContainer}>
+                    <Ad image="https://picsum.photos/512" />
+                    <Ad image="https://picsum.photos/512" />
+                </div>
+                <div className={styles.adContainer}>
+                    <Ad image="https://picsum.photos/512" />
+                    <Ad image="https://picsum.photos/512" />
                 </div>
             </section>
         </>   

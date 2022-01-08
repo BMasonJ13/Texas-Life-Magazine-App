@@ -1,8 +1,5 @@
 
-:root{
-    --black: #242424;
-    --white: #EEEEEE;
-}
+@import '../../Constants.module.css';
 
 .footer{
     width: 100%;

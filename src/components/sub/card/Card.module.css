@@ -2,6 +2,8 @@
 :root{
     --black: #242424;
     --white: #EEEEEE;
+    --blue: blue;
+    --pink: pink;
 }
 
 .blackCard{
@@ -11,5 +13,15 @@
 
 .whiteCard{
     background-color: var(--white);
+    border: 4px solid var(--black);
+}
+
+.pinkCard{
+    background-color: var(--pink);
+    border: 4px solid var(--black);
+}
+
+.blueCard{
+    background-color: var(--blue);
     border: 4px solid var(--black);
 }

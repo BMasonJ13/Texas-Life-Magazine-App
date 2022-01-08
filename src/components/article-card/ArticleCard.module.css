@@ -1,21 +1,5 @@
-
-:root{
-    --black: #242424;
-    --white: #eeeeee;
-}
-
 .card{
     max-width: calc(315px - 8px);
-}
-
-.blackCard{
-    background-color: var(--black);
-    border: 4px solid var(--black);
-}
-
-.whiteCard{
-    background-color: var(--white);
-    border: 4px solid var(--black);
 }
 
 .innerContainer{
