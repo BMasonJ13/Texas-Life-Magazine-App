@@ -17,7 +17,6 @@ import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer'; 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
-
 function App() {
   return (
     <>
