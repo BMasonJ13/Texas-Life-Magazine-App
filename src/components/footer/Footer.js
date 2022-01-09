@@ -19,7 +19,7 @@ const Footer = () =>
         <div className={styles.innerContainer}>
             <Link to="/"><img className={styles.logo} src={TLMLogo} alt='Texas Life Magazine Logo'/></Link>
             <div className={styles.socialMediaContainer}>
-                <Icon color="black" iconStyle={styles.icon} icon={Icons.faFacebook} alt="facebook link" />
+                <a href="https://www.facebook.com/TexasLifeMagazine/" target="_blank" rel="noopener noreferrer"><Icon color="black" iconStyle={styles.icon} icon={Icons.faFacebook} alt="facebook link" /></a>
                 <Icon color="black" iconStyle={styles.icon} icon={Icons.faInstagram} alt="instagram link" />
             </div>
             <Subtitle color="black" textStyle={styles.notice}>&copy; 2022 Texas Life Magazine</Subtitle>

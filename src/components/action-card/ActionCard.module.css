@@ -21,3 +21,13 @@
 
     align-self: center;
 }
+
+@media(min-width: 1024px){
+
+
+    .card{
+        max-width: 100%;
+        width: calc((315px - 8px) + (315px - 8px) + 85px);
+    }
+
+}

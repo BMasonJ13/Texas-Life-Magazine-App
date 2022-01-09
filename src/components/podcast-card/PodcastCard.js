@@ -15,9 +15,11 @@ const PodcastCard = ({title, description, color, cardStyle}) =>
     return(
         <Card color={color} cardStyle={styles.card + " " + cardStyle}>
             <div className={styles.innerContainer}>
-                <Icon color={color} icon={Icons.faPlay}/>
-                <Subtitle color={color} textStyle={styles.title}>{title}</Subtitle>
-                <Paragraph color={color} textStyle={styles.description}>{description}</Paragraph>
+                <Icon color={color} icon={Icons.faPlay} iconStyle={styles.icon}/>
+                <div className={styles.infoContainer}>
+                    <Subtitle color={color} textStyle={styles.title}>{title}</Subtitle>
+                    <Paragraph color={color} textStyle={styles.description}>{description}</Paragraph>
+                </div>
                 <Subtitle color={color}  textStyle={styles.time}>32:15</Subtitle>
             </div>
         </Card>

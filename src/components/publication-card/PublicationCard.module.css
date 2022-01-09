@@ -27,3 +27,9 @@
     margin-top: 20px;
     padding: 10px 20px;
 }
+
+@media(min-width: 1024px){
+    .card{
+        max-width: calc(315px - 8px + 8px);
+    }
+}

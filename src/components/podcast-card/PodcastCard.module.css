@@ -13,7 +13,6 @@
 
 .title{
     margin-top: 15px;
-    margin-left: -10px;
     font-size: .875rem;
     text-align: left;
 }
@@ -26,4 +25,43 @@
 .time{
     margin-top: 10px;
     text-align: center;
+}
+
+@media(min-width: 1024px){
+
+
+    .card{
+        max-width: 100%;
+        width: calc((315px - 8px) + (315px - 8px) + 85px);
+        min-height: 100px;
+    }
+
+    .innerContainer{
+        flex-direction: row;
+        margin-top: 18px;
+    }
+
+    .icon{
+        margin-top: -10px;
+    }
+
+    .infoContainer{
+        margin-top: -10px;
+        margin-left: 30px;
+    }
+
+    .title{
+        margin: 0;
+    }
+
+    .description{
+        margin: 0;
+    }
+
+    .time{
+        margin-top: -10px;
+        text-align: right;
+        flex: 10;
+    }
+
 }

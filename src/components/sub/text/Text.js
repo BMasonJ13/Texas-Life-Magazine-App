@@ -4,7 +4,7 @@ import styles from './Text.module.css'
 
 const currentStyle = (color) => {
     if (color === "pink")
-        return styles.white
+        return styles.black
     else if (color === "blue")
         return styles.white
     else if (color === "black")

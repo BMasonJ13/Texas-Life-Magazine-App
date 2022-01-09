@@ -11,13 +11,13 @@ const BannerAd = ({topAd, bottomAd}) =>
 
     return(
         <div className={styles.ad}>
-            <Ad long image={topAd}/>
+            <Ad long image={topAd} adStyle={styles.longAd}/>
             <img 
             className={styles.bannerImage}
             src={TLMBanner} 
             alt="Texas Life Magazine Banner"
             />
-            <Ad long image={bottomAd}/>
+            <Ad long image={bottomAd} adStyle={styles.longAd}/>
         </div>
     )
 }
