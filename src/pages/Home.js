@@ -29,7 +29,7 @@ const Home = () =>
                 description="Get your advertisment on our website today."
                 actionText="Become a Sponsor"
                 cardStyle={styles.card}
-                path="/"
+                path="/Sponsors"
                 />
                 </div>
                 <div className={styles.adInner} id={styles.one}>
@@ -50,7 +50,7 @@ const Home = () =>
                         description="View our articles on historic locations in Texas."
                         actionText="View Historic Articles"
                         cardStyle={styles.card}
-                        path="/"
+                        path="/Historic"
                         color="black"
                     />
                 </div>
