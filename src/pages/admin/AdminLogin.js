@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios'
 
 //Subcomponents
-import { Header } from '../../components/sub/text/Text'
+//import { Header } from '../../components/sub/text/Text'
 
 //CSS Modules
 import styles from './AdminLogin.module.css'
