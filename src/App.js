@@ -1,4 +1,6 @@
 
+import {useState} from 'react'
+
 //Pages
 import Home from './pages/Home'
 import Music from './pages/Music'
@@ -10,6 +12,7 @@ import Historic from './pages/Historic'
 import Archives from './pages/Archives'
 import Podcasts from './pages/Podcasts'
 import Sponsors from './pages/Sponsorship'
+import AdminLogin from './pages/admin/AdminLogin'
 
 //Components
 import BannerAd from './components/banner-ad/BannerAd'
@@ -17,15 +20,19 @@ import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer'; 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
+
 function App() {
+
+  const [isAdmin, setAdmin] = useState(false)
+
   return (
     <>
-      <BrowserRouter>
-        <BannerAd 
+      < BrowserRouter>
+        {!isAdmin && <BannerAd 
         topAd="https://picsum.photos/375/70"
         bottomAd="https://picsum.photos/375/70"
-        />
-        <Navbar />
+        />}
+        {!isAdmin && <Navbar />}
         <Routes>
           <Route exact path="/" element={<Navigate replace to="/Home" />} />
           <Route exact path="/Home" element={<Home />} />
@@ -38,6 +45,7 @@ function App() {
           <Route exact path="/Archives" element={<Archives />} />
           <Route exact path="/Podcasts" element={<Podcasts />} />
           <Route exact path="/Sponsors" element={<Sponsors />} />
+          <Route exact path="/Admin" element={<AdminLogin setTheAdmin={setAdmin}/>} />
         </Routes>
         <Footer />
       </BrowserRouter>
