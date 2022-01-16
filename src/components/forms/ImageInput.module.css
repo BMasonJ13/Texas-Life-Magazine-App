@@ -1,0 +1,9 @@
+
+@import '../../Constants.module.css';
+
+.input{
+    background-color: var(--white);
+    border: 2px solid var(--black);
+    font-family: var(--website-font);
+    font-weight: lighter;
+}

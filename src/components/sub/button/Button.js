@@ -14,9 +14,19 @@ const currentStyle = (color) => {
         return styles.black
 }
 
-const Button = ({buttonStyle, color, path, children}) =>
+
+
+const Button = ({ buttonStyle, color, path, children, externalLink}) =>
 {
-    return <Link className={styles.button + " " + currentStyle(color) + " " + buttonStyle} to={path}>{children}</Link>
+
+    const ButtonType = () => {
+        if (externalLink)
+            return <a className={styles.button + " " + currentStyle(color) + " " + buttonStyle} href={path} target="_blank" rel="noopener noreferrer"> {children}</a>
+        else
+            return <Link className={styles.button + " " + currentStyle(color) + " " + buttonStyle} to={path}>{children}</Link>
+    }
+
+    return ButtonType() 
 }
 
 export default Button

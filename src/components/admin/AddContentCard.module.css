@@ -1,0 +1,44 @@
+
+@import '../../Constants.module.css';
+
+.link{
+    text-decoration: none;
+}
+
+.card{
+    transition: 0.3s;
+
+    display: flex;
+    flex-direction: column;
+
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.card:hover{
+    cursor: pointer;
+    background-color: var(--black);
+}
+
+.card:hover .title{
+     color: var(--white);
+}
+
+.card:hover .icon{
+    color: var(--white);
+}
+
+.innerContainer{
+    padding: 30px 48px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title{
+    margin-top: 30px;
+    text-align: center;
+}

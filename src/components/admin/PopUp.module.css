@@ -1,0 +1,67 @@
+
+@import '../../Constants.module.css';
+
+.background{
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(180, 180, 180, .4);
+
+    display: none;
+
+}
+
+.background.show{
+    display: block;
+}
+
+.innerContainer{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+
+    height: 100%;
+}
+
+.card{
+    border-radius: 50px;
+}
+
+.cardInnerContainer{
+    padding: 80px 120px;
+
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+.loader{
+    font-size: 3rem;
+
+    animation-name: rotate;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+
+}
+
+.button{
+    margin-top: 50px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

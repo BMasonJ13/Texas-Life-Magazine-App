@@ -1,4 +1,6 @@
 
+@import '../../Constants.module.css';
+
 .long{
     width: 100%;
     height: 70px;
@@ -19,4 +21,59 @@
     object-fit: cover;
     width: 128px;
     height: 128px;
+}
+
+.blankAdmin{
+    background-color: var(--black);
+    position: relative;
+    z-index: 0;
+}
+
+.adminContainer{
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    position: absolute;
+
+    top: 100%;
+    margin: -38px 0 0px 0px;
+
+    width: 128px;
+
+}
+
+.adminEdit{
+    background-color: var(--yellow);
+    padding: 10px;
+    width: 30px;
+}
+
+.adminDelete{
+    background-color: var(--red);
+    padding: 10px;
+    width: 30px;
+}
+
+.adminEdit:hover .icon{
+    transform: scale(1.3);
+}
+
+.adminDelete:hover .timesIcon{
+    transform: scale(1.3);
+}
+
+.icon{
+    color: var(--white);
+    font-size: 1.1rem;
+    transition: 0.4s;
+}
+
+.timesIcon{
+    color: var(--white);
+    font-size: 1.3rem;
+    min-width: 20px;
+    margin-bottom: -4px;
+    transition: 0.4s;
 }

@@ -1,0 +1,12 @@
+
+.adminCard{
+    margin: 30px auto;
+    margin-top: 40px;
+    width: 307px;
+}
+
+@media(min-width: 821px){
+    .adminCard{
+        width: 683px;
+    }
+}

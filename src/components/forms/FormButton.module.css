@@ -1,0 +1,19 @@
+@import '../../Constants.module.css';
+
+.input{
+    background-color: var(--black);
+    border: 2px solid var(--black);
+    color: var(--white);
+    font-family: var(--website-font);
+    font-weight: lighter;
+
+    transition: 0.3s;
+}
+
+.input:hover{
+    cursor: pointer;
+
+    background-color: var(--white);
+    color: var(--black);
+
+}

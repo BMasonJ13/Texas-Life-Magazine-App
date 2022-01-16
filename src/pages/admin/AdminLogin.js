@@ -1,8 +1,8 @@
-import React from 'react';
-import axios from 'axios'
-
-//Subcomponents
-//import { Header } from '../../components/sub/text/Text'
+import React, {useState, useEffect} from 'react';
+import {useNavigate} from 'react-router-dom'
+import {auth} from '../../firebaseConfig'
+import {signInWithEmailAndPassword} from 'firebase/auth'
+import {useAuthState} from 'react-firebase-hooks/auth'
 
 //CSS Modules
 import styles from './AdminLogin.module.css'
@@ -10,18 +10,29 @@ import styles from './AdminLogin.module.css'
 const AdminLogin = ({setTheAdmin}) =>
 {
 
-    const handleClick = async () =>
-    {
-        const res = await axios.get('/api/Login')
-        console.log(res);
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [user, loading, error] = useAuthState(auth)
+    const history = useNavigate()
+
+    useEffect(() => {
+        if (loading) {
+            console.log(error);
+            return;
+        }
+        if (user) { setTheAdmin(true); history("/Home");}
+    }, [user, loading, history, error, setTheAdmin]);
+
+    const handleClick = () =>{
+        signInWithEmailAndPassword(auth, email, password)
     }
 
     return(
         <>
             <form className={styles.card}>
                 <div className={styles.innerContainer}>
-                    <input type="text" id="fname" placeholder='Email' name="fname" className={styles.input}/>
-                    <input type="password" id="lname" placeholder='Password' name="lname" className={styles.input}/>
+                    <input type="text" id="email" placeholder='Email' onChange={(e) => setEmail(e.target.value)} name="fname" className={styles.input}/>
+                    <input type="password" id="pass" onChange={(e) => setPassword(e.target.value)} placeholder='Password' name="lname" className={styles.input}/>
                     <button className={styles.button} onClick={handleClick}>Login</button>
                 </div>
             </form>
