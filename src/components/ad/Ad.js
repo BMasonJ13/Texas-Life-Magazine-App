@@ -9,7 +9,7 @@ import * as Icons from '@fortawesome/free-solid-svg-icons'
 //CSS Modules
 import styles from './Ad.module.css'
 
-const Ad = ({isAdmin, id, image, path, long, adStyle}) =>
+const Ad = ({isAdmin, id, image, path, long, adStyle, adLocation}) =>
 {
 
     const getData = () =>
@@ -27,8 +27,8 @@ const Ad = ({isAdmin, id, image, path, long, adStyle}) =>
                 <div className={styles.blankAdmin + " " + (long ? styles.longImage : styles.squareImage)}>
                     <img className={long ? styles.longImage : styles.squareImage} src={image} alt="" />
                     <div className={styles.adminContainer}>
-                        <Link className={styles.adminEdit} to={`/EditSponsor/:${id}`}><Icon iconStyle={styles.icon} icon={Icons.faPencilAlt} /></Link>
-                        <Link className={styles.adminDelete} to={`/DeleteSponsor/:${id}`}><Icon iconStyle={styles.timesIcon} icon={Icons.faTrash} /></Link>
+                        <Link className={styles.adminEdit} to={`/EditSponsor/:${adLocation}/:${id}`}><Icon iconStyle={styles.icon} icon={Icons.faPencilAlt} /></Link>
+                        <Link className={styles.adminDelete} to={`/DeleteSponsor/:${adLocation}/:${id}`}><Icon iconStyle={styles.timesIcon} icon={Icons.faTrash} /></Link>
                     </div>
                 </div>
             )

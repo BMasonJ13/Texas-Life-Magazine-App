@@ -6,7 +6,7 @@ import Ad from '../ad/Ad'
 //CSS Modules
 import styles from './PublicationSection.module.css'
 
-const PublicationSection = ({isAdmin, pubOne, pubTwo, pubThree, pubFour}) => 
+const PublicationSection = ({isAdmin, pubOne, pubTwo, pubThree, pubFour, adOne, adTwo, adThree, adFour, adLocation}) => 
 {
     return(
         <section className={styles.homeSection}>
@@ -55,12 +55,12 @@ const PublicationSection = ({isAdmin, pubOne, pubTwo, pubThree, pubFour}) =>
                 /> }
             </div>
             <div className={styles.adInner} id={styles.one}>
-                <Ad isAdmin={isAdmin} image="https://picsum.photos/512" />
-                <Ad isAdmin={isAdmin} image="https://picsum.photos/512" />
+                {adOne && <Ad isAdmin={isAdmin} id={adOne.id} image={adOne.imageURL} path={adOne.websiteURL} adLocation={adLocation}/> }
+                {adTwo && <Ad isAdmin={isAdmin} id={adTwo.id} image={adTwo.imageURL} path={adTwo.websiteURL} adLocation={adLocation}/> }
             </div>
             <div className={styles.adInner}>
-                <Ad isAdmin={isAdmin} image="https://picsum.photos/512" />
-                <Ad isAdmin={isAdmin} image="https://picsum.photos/512" />
+                {adThree && <Ad isAdmin={isAdmin} id={adThree.id} image={adThree.imageURL} path={adThree.websiteURL} adLocation={adLocation}/> }
+                {adFour && <Ad isAdmin={isAdmin} id={adFour.id} image={adFour.imageURL} path={adFour.websiteURL} adLocation={adLocation}/> }
             </div>
         </section>
     )

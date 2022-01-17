@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 //Firestore
-import { collection, getDocs } from 'firebase/firestore'
-import { db } from '../firebaseConfig';
+import { getDocuments } from '../utils/Database';
 
 //Supercomponents
 import PublicationSection from '../components/super/PublicationSection'
@@ -16,14 +15,22 @@ import styles from './Archives.module.css'
 const Archives = ({isAdmin}) => {
 
     const [data, setData] = useState(null);
+    const [sponsorData, setSponsorData] = useState(null);
 
     const getData = async () => {
-        const snapshot = await getDocs(collection(db, "Publications"));
-
+        const snapshot = await getDocuments("Publications");
+        
         if(snapshot)
-        {
             setData(snapshot);
-         }
+        else
+            console.log("Snapshot doesn't exist for Archives.")
+
+        const sponsorSnapshot = await getDocuments("sponsor-archives");
+
+        if(sponsorSnapshot)
+            setSponsorData(sponsorSnapshot)
+        else
+            console.log("Sponsor Snapshot doesn't exist for Archives.")
     }
 
     useEffect(() => {
@@ -44,28 +51,51 @@ const Archives = ({isAdmin}) => {
 
     const prepareData = () => {
         
-        if(!data)
+        if(!data || !sponsorData)
             return null;
 
         let sectionAmount = Math.ceil(data.size / 4);
         const sections = [];
         const pubDocs = [];
+        const sponsorDocs = [];
 
         for(let i = 0; i < data.size; i++){
             pubDocs[i] = data.docs[i].data();
         }
+    
+        for(let i = 0; i < sponsorData.size; i++){
+            sponsorDocs[i] = sponsorData.docs[i].data();
+        }
 
         pubDocs.sort(sortByDate);
+        sponsorDocs.sort(sortByDate).reverse();
 
         for(let i = 0; i < sectionAmount; i++){
             const docs = [];
+            const sponDocs = [];
             for(let j = 0; j < 4; j++){
                 if((i * 4) + j > pubDocs.size)
                     docs[j] = null;
                 else
-                    docs[j] = pubDocs[(i * 4) + j];              
+                    docs[j] = pubDocs[(i * 4) + j];    
+                if((i * 4) + j > sponsorDocs.size)
+                    sponDocs[j] = null;
+                else
+                    sponDocs[j] = sponsorDocs[(i * 4) + j];          
             }
-            sections[i] = <PublicationSection isAdmin={isAdmin} key={i + " key"} pubOne={docs[0]} pubTwo={docs[1]} pubThree={docs[2]} pubFour={docs[3]} />
+            sections[i] = <PublicationSection 
+                        isAdmin={isAdmin} 
+                        key={i + " key"} 
+                        pubOne={docs[0]} 
+                        pubTwo={docs[1]}
+                        pubThree={docs[2]}
+                        pubFour={docs[3]} 
+                        adOne={sponDocs[0]}
+                        adTwo={sponDocs[1]}
+                        adThree={sponDocs[2]}
+                        adFour={sponDocs[3]}
+                        adLocation="archives"
+                          />
         }
 
         return sections;

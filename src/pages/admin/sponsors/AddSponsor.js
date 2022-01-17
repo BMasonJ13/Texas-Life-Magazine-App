@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
-import styles from './AddSponsor.module.css'
+//Firebase
+import { sendData } from '../../../utils/Storage'
+import { setDocument } from '../../../utils/Database'
 
 //Subcomponents
 import Card from '../../../components/sub/card/Card'
@@ -14,10 +16,14 @@ import PopUp from '../../../components/admin/PopUp'
 //Components
 import Ad from '../../../components/ad/Ad'
 
+//CSS Modules
+import styles from './AddSponsor.module.css'
+
 const AddSponsor = () =>
 {
 
     const history = useNavigate()
+    const { type } = useParams();
 
     //States for upload
     const [image, setImage] = useState("") //For Preview
@@ -51,6 +57,22 @@ const AddSponsor = () =>
     const handleSubmit = (e) => {
         setLoading(true);
 
+        const date = new Date();
+        const currentTime = date.getTime();
+        SponsorData.id = currentTime;
+        SponsorData.websiteURL = link;
+        SponsorData.dateAdded = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+
+        const redirect = type.substring(1).toLowerCase(); // Makes :Podcast => podcast
+
+        sendData(`sponsors/${redirect}/${currentTime}`, storageImage, (url) => {
+            SponsorData.imageURL = url;
+            setDocument(`sponsor-${redirect}`, `${currentTime}`, SponsorData, () => {
+                setLoading(false);
+                history(`/${redirect}`)
+            });
+        })
+
     }
 
     return(
@@ -71,6 +93,15 @@ const AddSponsor = () =>
             </div>
         </div>
     )
+}
+
+
+const SponsorData =
+{
+    id: "",
+    websiteURL: "",
+    imageURL: "",
+    dateAdded: ""
 }
 
 export default AddSponsor;

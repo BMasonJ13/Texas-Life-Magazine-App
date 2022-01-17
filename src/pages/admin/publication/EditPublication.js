@@ -1,9 +1,8 @@
 
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
-import { doc, setDoc, getDoc } from 'firebase/firestore'
-import { storage, db } from "../../../firebaseConfig";
+import { sendData } from '../../../utils/Storage'
+import { setDocument, getDocument } from '../../../utils/Database';
 
 //Subcomponents
 import TextInput from "../../../components/forms/TextInput";
@@ -29,19 +28,19 @@ const EditPublication = () =>
 
     const getData = async() =>
     {
-        const snapshot = await getDoc(doc(db, "Publications", id.substring(1)))
+        const snapshot = await getDocument("Publications", id.substring(1));
 
-        if(snapshot.exists()){
-            setID(snapshot.data().id);
-            setDateAdded(snapshot.data().dateAdded);
-            setTitle(snapshot.data().title);
-            setDes(snapshot.data().description);
-            setColor(snapshot.data().color);
-            setImage(snapshot.data().imageURL);
-            setPDFURL(snapshot.data().pdfURL)
-
-        }else{
-            console.log("Whoops!")
+        if(snapshot)
+        {
+            setID(snapshot.id);
+            setDateAdded(snapshot.dateAdded);
+            setTitle(snapshot.title);
+            setDes(snapshot.description);
+            setColor(snapshot.color);
+            setImage(snapshot.imageURL);
+            setPDFURL(snapshot.pdfURL)
+        } else{
+            console.log("Document could not be found in FireStore/Publications/")
         }
     }
 
@@ -115,47 +114,42 @@ const EditPublication = () =>
         PublicationData.color = color;
         PublicationData.dateAdded = dateAdded;
 
-        const imagesRef = ref(storage, `publications/images/${cardID}`)
-
         if(imageChanged && pdfChanged){
-            uploadBytes(imagesRef, storageImage).then((snapshot) => {
-                getDownloadURL(imagesRef).then((url) => {
-                    const pdfRef = ref(storage, `publications/pdfs/${cardID}`)
-                    PublicationData.imageURL = url;
-                    uploadBytes(pdfRef, pdf).then((snapshot) => {
-                        getDownloadURL(pdfRef).then((url) => {
-                            PublicationData.pdfURL = url;
-                            setDoc(doc(db, "Publications", `${cardID}`), PublicationData);
-                            setLoading(false)
-                        })
-                    })
-                })
-            })
+            sendData(`publications/images/${cardID}`, storageImage, (url) => {
+                PublicationData.imageURL = url;
+                sendData(`publications/pdfs/${cardID}`, pdf, (url) => {
+                    PublicationData.pdfURL = url;
+                    setDocument("Publications", `${cardID}`, PublicationData, () => {
+                        setLoading(false);
+                        history("/Archives")
+                    });
+                });
+
+            });
         } else if(imageChanged){
-            uploadBytes(imagesRef, storageImage).then((snapshot) => {
-                getDownloadURL(imagesRef).then((url) => {
-                    PublicationData.imageURL = url;
-                    setDoc(doc(db, "Publications", `${cardID}`), PublicationData);
-                    setLoading(false)
-                })
+            sendData(`publications/images/${cardID}`, storageImage, (url) => {
+                PublicationData.imageURL = url;
+                setDocument("Publications", `${cardID}`, PublicationData, () => {
+                    setLoading(false);
+                    history("/Archives")
+                });
             })
         } else if(pdfChanged){
-            const pdfRef = ref(storage, `publications/pdfs/${cardID}`)
-            uploadBytes(pdfRef, pdf).then((snapshot) => {
-                getDownloadURL(pdfRef).then((url) => {
+            sendData(`publications/images/${cardID}`, pdf, (url) => {
                     PublicationData.pdfURL = url;
-                    setDoc(doc(db, "Publications", `${cardID}`), PublicationData);
-                    setLoading(false)
+                    setDocument("Publications", `${cardID}`, PublicationData, () => {
+                        setLoading(false);
+                        history("/Archives")
+                    });
                 })
-            })
         } else{
             PublicationData.imageURL = image;
             PublicationData.pdfURL = pdfURL;
-            setDoc(doc(db, "Publications", `${cardID}`), PublicationData);
-            setLoading(false)
+            setDocument("Publications", `${cardID}`, PublicationData, () => {
+                setLoading(false);
+                history("/Archives")
+            });
         }
-        if(!loading)
-            history("/Archives")
     }
 
     //Component Data

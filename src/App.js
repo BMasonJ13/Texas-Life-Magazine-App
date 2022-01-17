@@ -23,8 +23,9 @@ import AddPodcast from './pages/admin/podcast/AddPodcast'
 import EditPodcast from './pages/admin/podcast/EditPodcast'
 import DeletePodcast from './pages/admin/podcast/DeletePodcast'
 
-import SponsorDashboard from './pages/admin/sponsors/SponsorDashboard'
 import AddSponsor from './pages/admin/sponsors/AddSponsor'
+import EditSponsor from './pages/admin/sponsors/EditSponsor'
+import DeleteSponsor from './pages/admin/sponsors/DeleteSponsor'
 
 //Components
 import BannerAd from './components/banner-ad/BannerAd'
@@ -69,8 +70,9 @@ function App() {
           <Route exact path="/EditPodcast/:id" element={<EditPodcast />} />
           <Route exact path="/DeletePodcast/:id" element={<DeletePodcast />} />
 
-          <Route exact path="/SponsorDashboard" element={<SponsorDashboard /> } />
           <Route exact path="/AddSponsor/:type" element={<AddSponsor />} />
+          <Route exact path="/EditSponsor/:type/:id" element={<EditSponsor />} />
+          <Route exact path="/DeleteSponsor/:type/:id" element={<DeleteSponsor />} />
 
           <Route exact path="/404" element={<h1>Whoops.</h1>} />
           <Route exact path="*" element={<Navigate replace to="/404" />} />
