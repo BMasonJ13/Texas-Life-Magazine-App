@@ -5,11 +5,12 @@ import Card from '../sub/card/Card';
 import Icon from '../sub/icon/Icon'
 import { Subtitle, Paragraph } from '../sub/text/Text'
 import * as Icons from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 
 //CSS Modules
 import styles from './PodcastCard.module.css'
 
-const PodcastCard = ({title, description, color, cardStyle}) =>
+const PodcastCard = ({ isAdmin, id, mp3URL, title, description, color, time, cardStyle}) =>
 {
 
     return(
@@ -20,8 +21,12 @@ const PodcastCard = ({title, description, color, cardStyle}) =>
                     <Subtitle color={color} textStyle={styles.title}>{title}</Subtitle>
                     <Paragraph color={color} textStyle={styles.description}>{description}</Paragraph>
                 </div>
-                <Subtitle color={color}  textStyle={styles.time}>32:15</Subtitle>
+                <Subtitle color={color}  textStyle={styles.time}>{time}</Subtitle>
             </div>
+            {isAdmin && <div className={styles.adminContainer}>
+                <Link className={styles.adminEdit} to={`/EditPodcast/:${id}`}><Icon iconStyle={styles.editIcon} icon={Icons.faPencilAlt} /></Link>
+                <Link className={styles.adminDelete} to={`/DeletePodcast/:${id}`}><Icon iconStyle={styles.timesIcon} icon={Icons.faTrash} /></Link>
+            </div>}
         </Card>
     )
 

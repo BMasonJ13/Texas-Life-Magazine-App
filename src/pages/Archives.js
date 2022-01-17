@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 //Firestore
-import { getDocuments } from '../utils/Database';
+import {getCards, getAds, sortByDate} from './admin/utils/SectionDataUtil'
 
 //Supercomponents
 import PublicationSection from '../components/super/PublicationSection'
@@ -18,36 +18,13 @@ const Archives = ({isAdmin}) => {
     const [sponsorData, setSponsorData] = useState(null);
 
     const getData = async () => {
-        const snapshot = await getDocuments("Publications");
-        
-        if(snapshot)
-            setData(snapshot);
-        else
-            console.log("Snapshot doesn't exist for Archives.")
-
-        const sponsorSnapshot = await getDocuments("sponsor-archives");
-
-        if(sponsorSnapshot)
-            setSponsorData(sponsorSnapshot)
-        else
-            console.log("Sponsor Snapshot doesn't exist for Archives.")
+        setData( await getCards("Publications"))
+        setSponsorData( await getAds("sponsor-archives"))
     }
 
     useEffect(() => {
         getData();
     }, [])
-
-    const sortByDate = (a, b) => {
-
-        if(a === null)
-            return -1;
-        if(b === null)
-            return 1;
-
-        const dateA = a.dateAdded;
-        const dateB = b.dateAdded;
-        return new Date(dateB).getTime() - new Date(dateA).getTime();
-    }
 
     const prepareData = () => {
         
