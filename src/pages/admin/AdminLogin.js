@@ -23,7 +23,8 @@ const AdminLogin = ({setTheAdmin}) =>
         }
     }, [user, loading, history, error, setTheAdmin]);
 
-    const handleClick = () =>{
+    const handleClick = (e) =>{
+        e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
     }
 
