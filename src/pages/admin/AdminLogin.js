@@ -16,11 +16,11 @@ const AdminLogin = ({setTheAdmin}) =>
     const history = useNavigate()
 
     useEffect(() => {
+        if (user) { setTheAdmin(true); history("/Home"); }
         if (loading) {
-            console.log(error.message());
+            console.log(error);
             return;
         }
-        if (user) { setTheAdmin(true); history("/Home");}
     }, [user, loading, history, error, setTheAdmin]);
 
     const handleClick = () =>{
