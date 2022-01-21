@@ -27,14 +27,13 @@ import AddSponsor from './pages/admin/sponsors/AddSponsor'
 import EditSponsor from './pages/admin/sponsors/EditSponsor'
 import DeleteSponsor from './pages/admin/sponsors/DeleteSponsor'
 
+import AddArticle from './pages/admin/articles/AddArticle'
+
 //Components
 import BannerAd from './components/banner-ad/BannerAd'
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer'; 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-
-
-
 
 function App() {
 
@@ -73,6 +72,8 @@ function App() {
           <Route exact path="/AddSponsor/:type" element={<AddSponsor />} />
           <Route exact path="/EditSponsor/:type/:id" element={<EditSponsor />} />
           <Route exact path="/DeleteSponsor/:type/:id" element={<DeleteSponsor />} />
+
+          <Route exact path="/AddArticle/:type" element={<AddArticle />} />
 
           <Route exact path="/404" element={<h1>Whoops.</h1>} />
           <Route exact path="*" element={<Navigate replace to="/404" />} />

@@ -3,7 +3,7 @@ import React from 'react';
 //CSS Modules
 import styles from './Card.module.css'
 
-const Card = ({children, color, cardStyle}) => {
+const Card = ({children, color, cardStyle, onClick}) => {
 
     const currentStyle = () =>{
         if(color === "pink")
@@ -17,7 +17,7 @@ const Card = ({children, color, cardStyle}) => {
     }
 
     return(
-    <div className={currentStyle() + " " + cardStyle}>
+    <div className={currentStyle() + " " + cardStyle} onClick={onClick}>
         {children}
     </div>
     )
