@@ -17,7 +17,7 @@ const AdminLogin = ({setTheAdmin}) =>
 
     useEffect(() => {
         if (loading) {
-            console.log("Didn't log in lol");
+            console.log(error.code + " " + error.message);
             return;
         }
         if (user) { setTheAdmin(true); history("/Home");}
