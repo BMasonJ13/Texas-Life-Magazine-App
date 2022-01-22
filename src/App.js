@@ -28,6 +28,8 @@ import EditSponsor from './pages/admin/sponsors/EditSponsor'
 import DeleteSponsor from './pages/admin/sponsors/DeleteSponsor'
 
 import AddArticle from './pages/admin/articles/AddArticle'
+import DeleteArticle from './pages/admin/articles/DeleteArticle'
+import View from './pages/View'
 
 //Components
 import BannerAd from './components/banner-ad/BannerAd'
@@ -50,11 +52,11 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Navigate replace to="/Home" />} />
           <Route exact path="/Home" element={<Home isAdmin={isAdmin}/>} />
-          <Route exact path="/Music" element={<Music />} />
-          <Route exact path="/Tastes" element={<Tastes />} />
-          <Route exact path="/BackTheBlue" element={<BackTheBlue />} />
-          <Route exact path="/SomervelleCounty" element={<SomervelleCounty />} />
-          <Route exact path="/CreationEvidenceMuseum" element={<CreationEvidenceMuseum />} />
+          <Route exact path="/Music" element={<Music isAdmin={isAdmin} />} />
+          <Route exact path="/Tastes" element={<Tastes isAdmin={isAdmin}/>} />
+          <Route exact path="/BackTheBlue" element={<BackTheBlue isAdmin={isAdmin}/>} />
+          <Route exact path="/SomervelleCounty" element={<SomervelleCounty isAdmin={isAdmin}/>} />
+          <Route exact path="/CreationEvidenceMuseum" element={<CreationEvidenceMuseum isAdmin={isAdmin} />} />
           <Route exact path="/Archives" element={<Archives isAdmin={isAdmin}/>} />
           <Route exact path="/Podcasts" element={<Podcasts isAdmin={isAdmin}/>} />
           <Route exact path="/Sponsors" element={<Sponsors isAdmin={isAdmin} />} />
@@ -74,6 +76,9 @@ function App() {
           <Route exact path="/DeleteSponsor/:type/:id" element={<DeleteSponsor />} />
 
           <Route exact path="/AddArticle/:type" element={<AddArticle />} />
+          <Route exact path="/DeleteArticle/:type/:id" element={<DeleteArticle />} />
+
+          <Route exact path="/View/:type/:id" element={<View />} />
 
           <Route exact path="/404" element={<h1>Whoops.</h1>} />
           <Route exact path="*" element={<Navigate replace to="/404" />} />

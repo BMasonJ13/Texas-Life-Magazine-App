@@ -50,6 +50,8 @@
         justify-content: space-around;
         align-content: space-between;
         margin: 0 auto;
+
+        min-width: 128px;
     }
 
     .adContainer#one{

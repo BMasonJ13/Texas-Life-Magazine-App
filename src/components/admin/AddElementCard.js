@@ -10,7 +10,7 @@ import styles from './AddElementCard.module.css'
 const AddElementCard = ({action, type, cardStyle, handleClick}) => 
 {
     return(
-        <Card color="white" cardStyle={styles.card + " " + cardStyle} onClick={handleClick(ElementData)}>
+        <Card color="white" cardStyle={styles.card + " " + cardStyle} onClick={handleClick}>
             <div className={styles.innerContainer}>
                 <Icon iconStyle={styles.icon} icon={Icons.faPlus} />
                 <Subtitle textStyle={styles.title} >{action}</Subtitle>
@@ -18,18 +18,6 @@ const AddElementCard = ({action, type, cardStyle, handleClick}) =>
         </Card>
     )
 
-}
-
-const ElementData = {
-    
-    header: "",
-    subtitle: "",
-    paragraph: "",
-    imageURLS : {
-        imageA: "",
-        imageB: "",
-        imageC: ""
-    }
 }
 
 export default AddElementCard;
