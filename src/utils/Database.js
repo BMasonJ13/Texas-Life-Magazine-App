@@ -1,7 +1,7 @@
 
 //Firebase
 import { db } from '../firebaseConfig'
-import { doc, collection, setDoc, getDoc, getDocs, deleteDoc } from 'firebase/firestore'
+import { doc, collection, setDoc, getDoc, getDocs, deleteDoc, query, orderBy, limit} from 'firebase/firestore'
 
 const setDocument = (fireStoreCollection, documentName, jsonObject, callback) =>
 {
@@ -19,6 +19,20 @@ const getDocument = async (fireStoreCollection, documentName ) =>
         return snapshot.data();
     console.log("Could not get document. It may not exist.")
     return null;
+}
+
+const getRecentDocs = async (fireStoreCollection, amount) => {
+
+    const q = query(collection(db, fireStoreCollection), orderBy("id"), limit(amount))
+    
+    const snapshot = await getDocs(q);
+
+    if(snapshot)
+        return snapshot.docs;
+    
+    console.log(`Could not recent data in ${fireStoreCollection}.`);
+        return null;
+
 }
 
 const getDocuments = async (fireStoreCollection) => 
@@ -40,5 +54,6 @@ export {
     setDocument,
     getDocument,
     getDocuments,
-    deleteDocument
+    deleteDocument,
+    getRecentDocs
 }

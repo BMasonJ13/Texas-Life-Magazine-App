@@ -39,7 +39,7 @@ const ArticleSection = ({isAdmin, type, art1, art2, art3, art4, ad1, ad2, ad3, a
                 {ad1 && <Ad isAdmin={isAdmin} id={ad1.id} image={ad1.imageURL} path={ad1.websiteURL} adLocation={adLocation} />}
                 {ad2 && <Ad isAdmin={isAdmin} id={ad2.id} image={ad2.imageURL} path={ad2.websiteURL} adLocation={adLocation} />}
             </div>
-            <div className={styles.adInner}>
+            <div className={styles.adInner} id={styles.two}>
                 {ad3 && <Ad isAdmin={isAdmin} id={ad3.id} image={ad3.imageURL} path={ad3.websiteURL} adLocation={adLocation} />}
                 {ad4 && <Ad isAdmin={isAdmin} id={ad4.id} image={ad4.imageURL} path={ad4.websiteURL} adLocation={adLocation} />}
             </div>

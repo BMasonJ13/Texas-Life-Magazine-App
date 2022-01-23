@@ -1,12 +1,61 @@
 
-.adminCard{
-    margin: 30px auto;
-    margin-top: 40px;
-    width: 307px;
+@import '../Constants.module.css';
+
+.container{
+
+    margin: 25px 100px 0 100px;
+    display: flex;
+
+    justify-content: space-evenly;
+
 }
 
-@media(min-width: 821px){
-    .adminCard{
-        width: 683px;
-    }
+.planContainer{
+    padding: 20px;
+    text-align: center;
+
+    min-height: 200px;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-evenly;
+}
+
+.header{
+    margin-bottom: 20px;
+}
+
+.para{
+    margin-bottom: 30px;
+}
+
+.button{
+    text-decoration: none;
+    font-family: var(--website-font);
+    background-color: var(--black);
+    border: 4px solid var(--black);
+    padding: 10px 30px;
+    color: var(--white);
+    transition: 0.3s;
+}
+
+.button:hover{
+    background-color: var(--white);
+    color: var(--black);
+}
+
+.blackButton{
+    text-decoration: none;
+    font-family: var(--website-font);
+    background-color: var(--white);
+    border: 4px solid var(--white);
+    padding: 10px 30px;
+    color: var(--black);
+    transition: 0.3s;
+}
+
+.blackButton:hover{
+    background-color: var(--black);
+    color: var(--white);
 }
