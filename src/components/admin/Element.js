@@ -17,47 +17,47 @@ const Element = ({ header, image1, para1, image2, para2, image3, para3, image4, 
                         <Paragraph textStyle={styles.para}> {para1}</Paragraph>
                     </div>
                     <div className={styles.section}>
-                        {image2 && <img className={styles.image} src={image2} alt=""></img>}
+                        <img className={styles.image} src={image2} alt=""></img>
                         <Paragraph textStyle={styles.para}> {para2}</Paragraph>
                     </div>
                     <div className={styles.section}>
-                        {image3 && <img className={styles.image} src={image3} alt=""></img>}
+                        <img className={styles.image} src={image3} alt=""></img>
                         <Paragraph textStyle={styles.para}> {para3}</Paragraph>
                     </div>
                     <div className={styles.section}>
-                        {image4 && <img className={styles.image} src={image4} alt=""></img>}
+                        <img className={styles.image} src={image4} alt=""></img>
                         <Paragraph textStyle={styles.para}> {para4}</Paragraph>
                     </div>
                     <div className={styles.section}>
-                        {image5 && <img className={styles.image} src={image5} alt=""></img>}
+                        <img className={styles.image} src={image5} alt=""></img>
                         <Paragraph textStyle={styles.para}> {para5}</Paragraph>
                     </div>
                     <div className={styles.section}>
-                        {image6 && <img className={styles.image} src={image6} alt=""></img>}
+                        <img className={styles.image} src={image6} alt=""></img>
                         <Paragraph textStyle={styles.para}> {para6}</Paragraph>
                     </div>
                     <div className={styles.section}>
-                        {image7 && <img className={styles.image} src={image7} alt=""></img>}
+                        <img className={styles.image} src={image7} alt=""></img>
                         <Paragraph textStyle={styles.para}> {para7}</Paragraph>
                     </div>
                     <div className={styles.section}>
-                        {image8 && <img className={styles.image} src={image8} alt=""></img>}
+                        <img className={styles.image} src={image8} alt=""></img>
                         <Paragraph textStyle={styles.para}> {para8}</Paragraph>
                     </div>
                     <div className={styles.section}>
-                        {image9 && <img className={styles.image} src={image9} alt=""></img>}
+                        <img className={styles.image} src={image9} alt=""></img>
                         <Paragraph textStyle={styles.para}> {para9}</Paragraph>
                     </div>
                     <div className={styles.section}>
-                        {image10 && <img className={styles.image} src={image10} alt=""></img>}
+                        <img className={styles.image} src={image10} alt=""></img>
                         <Paragraph textStyle={styles.para}> {para10}</Paragraph>
                     </div>
                     <div className={styles.section}>
-                        {image11 && <img className={styles.image} src={image11} alt=""></img>}
+                        <img className={styles.image} src={image11} alt=""></img>
                         <Paragraph textStyle={styles.para}> {para11}</Paragraph>
                     </div>
                     <div className={styles.section}>
-                        {image12 && <img className={styles.image} src={image12} alt=""></img> }
+                        <img className={styles.image} src={image12} alt=""></img>
                         <Paragraph textStyle={styles.para}> {para12}</Paragraph>
                     </div>
                 </div>
