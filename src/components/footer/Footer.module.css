@@ -21,6 +21,9 @@
     width: 70px;
     height: 73px;
     align-self: center;
+
+    border-radius: 20px;
+    overflow: hidden;
 }
 
 .socialMediaContainer{
@@ -39,6 +42,7 @@
 }
 
 .notice{
+    font-size: .9rem;
     margin-top: 15px;
 }
 

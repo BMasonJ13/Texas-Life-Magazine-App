@@ -22,6 +22,20 @@
     justify-content: space-evenly;
 }
 
+.plantContainer{
+    padding: 20px;
+    text-align: center;
+
+    min-height: 200px;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-evenly;
+
+    margin: 30px auto 0 auto;
+}
+
 .header{
     margin-bottom: 20px;
 }

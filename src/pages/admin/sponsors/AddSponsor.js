@@ -19,7 +19,7 @@ import Ad from '../../../components/ad/Ad'
 //CSS Modules
 import styles from './AddSponsor.module.css'
 
-const AddSponsor = () =>
+const AddSponsor = ({long}) =>
 {
 
     const history = useNavigate()
@@ -65,9 +65,9 @@ const AddSponsor = () =>
 
         const redirect = type.substring(1).toLowerCase(); // Makes :Podcast => podcast
 
-        sendData(`sponsors/${redirect}/${currentTime}`, storageImage, (url) => {
+        sendData(`sponsors${long ? "-long" : ""}/${redirect}/${currentTime}`, storageImage, (url) => {
             SponsorData.imageURL = url;
-            setDocument(`sponsor-${redirect}`, `${currentTime}`, SponsorData, () => {
+            setDocument(`sponsor${long ? "-long" : ""}-${redirect}`, `${currentTime}`, SponsorData, () => {
                 setLoading(false);
                 history(`/${redirect}`)
             });
@@ -77,7 +77,7 @@ const AddSponsor = () =>
 
     return(
         <div>
-            <div className={styles.container}>
+            <div className={long ? styles.longContainer : styles.container}>
                 <PopUp loading={loading} />
                 <Card color="white" cardStyle={styles.card}>
                     <Subtitle textStyle={styles.header}>Ad Editor</Subtitle>
@@ -89,7 +89,8 @@ const AddSponsor = () =>
                         <FormButton onClick={handleSubmit} inputStyle={styles.button}>Submit</FormButton>
                     </div>
                 </Card>
-                <Ad image={image} path={link}/>
+                {!long && <Ad image={image} path={link}/> }
+                {long && <Ad adStyle={styles.long} image={image} path={link} long />}
             </div>
         </div>
     )

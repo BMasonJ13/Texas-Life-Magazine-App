@@ -24,11 +24,11 @@ const Ad = ({isAdmin, id, image, path, long, adStyle, adLocation}) =>
         } else if (isAdmin && image)
         {
             return(
-                <div className={styles.blankAdmin + " " + (long ? styles.longImage : styles.squareImage)}>
+                <div className={styles.blankAdmin + " " + (long ? styles.long : styles.squareImage) + " " + adStyle}>
                     <img className={long ? styles.longImage : styles.squareImage} src={image} alt="" />
                     <div className={styles.adminContainer}>
-                        <Link className={styles.adminEdit} to={`/EditSponsor/:${adLocation}/:${id}`}><Icon iconStyle={styles.icon} icon={Icons.faPencilAlt} /></Link>
-                        <Link className={styles.adminDelete} to={`/DeleteSponsor/:${adLocation}/:${id}`}><Icon iconStyle={styles.timesIcon} icon={Icons.faTrash} /></Link>
+                        {!long && <Link className={styles.adminEdit} to={`/Edit${long ? "Long" : ""}Sponsor/:${adLocation}/:${id}`}><Icon iconStyle={styles.icon} icon={Icons.faPencilAlt} /></Link> }
+                        <Link className={styles.adminDelete} to={`/Delete${long ? "Long" : ""}Sponsor/:${adLocation}/:${id}`}><Icon iconStyle={styles.timesIcon} icon={Icons.faTrash} /></Link>
                     </div>
                 </div>
             )

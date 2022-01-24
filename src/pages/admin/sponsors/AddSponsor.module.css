@@ -11,6 +11,18 @@
     align-items: center;
 }
 
+.longContainer{
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
 .card{
     max-width: calc(315px - 8px);
 
@@ -44,4 +56,9 @@
 
 .button{
     margin-top: 15px;
+}
+
+.long{
+    margin-top: 20px;
+    max-width: 890px;
 }

@@ -113,7 +113,7 @@
 }
 
 .navItem.blueLink:hover{
-    color: var(--blue);
+    color: var(--light-blue); 
 }
 
 @media (min-width: 1025px){

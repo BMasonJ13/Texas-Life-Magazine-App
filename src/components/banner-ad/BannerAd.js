@@ -1,25 +1,78 @@
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import Ad from '../ad/Ad.js'
+
+import { getAds } from '../../pages/admin/utils/SectionDataUtil'
 
 import styles from './BannerAd.module.css'
 
 import TLMBanner from '../../res/TLMBanner.jpg'
 
-const BannerAd = ({topAd, bottomAd}) =>
+const BannerAd = ({isAdmin}) =>
 {
 
-    return(
-        <div className={styles.ad}>
-            <Ad long image={topAd} adStyle={styles.longAd}/>
-            <img 
-            className={styles.bannerImage}
-            src={TLMBanner} 
-            alt="Texas Life Magazine Banner"
-            />
-            <Ad long image={bottomAd} adStyle={styles.longAd}/>
-        </div>
+    const [path, setPath] = useState("home")
+    const [sponsorData, setSponsorData] = useState(null);
+    const location = useLocation();
+
+    const getData = async () => {
+        if(!path.includes(":"))
+            setSponsorData((await getAds(`sponsor-long-${path}`)).docs)
+    }
+
+    useEffect(() => {
+        setPath(location.pathname.substring(1).toLowerCase());
+
+        if(path === "")
+            setPath("home")
+        getData();
+
+        
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [setPath, location, path]);
+
+    const prepareData = () => {
+
+        if(!sponsorData)
+            return
+
+        const topAd = sponsorData[0] ? sponsorData[0].data() : null;
+        const bottomAd = sponsorData[1] ? sponsorData[1].data() : null;
+
+        return ( 
+            <div className={styles.ad}>
+                {topAd && <Ad long 
+                isAdmin={isAdmin}
+                image={topAd.imageURL} 
+                adStyle={styles.longAd} 
+                id={topAd.id}
+                path={topAd.websiteURL} 
+                adLocation={`${path}`}
+                /> }
+                <img
+                    className={styles.bannerImage}
+                    src={TLMBanner}
+                    alt="Texas Life Magazine Banner"
+                />
+                {bottomAd && <Ad long 
+                isAdmin={isAdmin}
+                image={bottomAd.imageURL} 
+                adStyle={styles.longAd} 
+                id={bottomAd.id}
+                path={bottomAd.websiteURL}
+                adLocation={`${path}`}
+                /> }
+            </div>
+        )
+    }
+
+    return (
+        <>
+            {prepareData()}
+        </>
     )
+
 }
 
 export default BannerAd

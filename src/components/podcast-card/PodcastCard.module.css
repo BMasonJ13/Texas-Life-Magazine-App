@@ -1,6 +1,7 @@
+@import '../../Constants.module.css';
 
 .card{
-    max-width: calc(315px - 8px);
+    min-width: calc(315px - 8px);
 }
 
 .innerContainer{
@@ -65,6 +66,21 @@
     min-width: 20px;
     margin-bottom: -4px;
     transition: 0.4s;
+}
+
+.button{
+    background-color: rgba(1, 1, 1, 0);
+    border: none;
+    cursor: pointer;
+}
+
+.icon{
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.icon:hover{
+    color: var(--red)
 }
 
 @media(min-width: 1024px){

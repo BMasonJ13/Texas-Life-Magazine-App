@@ -48,8 +48,6 @@ const Home = ({isAdmin}) =>
         
         setPodcastData(await getRecentDocs("Podcasts"), 3)
 
-        
-
     }
 
     useEffect(() => {
@@ -61,23 +59,25 @@ const Home = ({isAdmin}) =>
 
         const elements = [];
 
+        if(!musicData)
+
         //I'm an idiot but I'm not changing it lol
         if(musicData)
-            elements.push(musicData[0].data())
+            elements.push(musicData[0] ? musicData[0].data() : null)
         else
             elements.push(null);
         
         if(tastesData)
-            elements.push(tastesData[0].data())
+            elements.push(tastesData[0] ? tastesData[0].data() : null)
         else
             elements.push(null);
         
         if(backTheBlueData)
-            elements.push(backTheBlueData[0].data())
+            elements.push(backTheBlueData[0] ? backTheBlueData[0].data() : null)
         else
             elements.push(null)
         if(somervelleCountyData)
-            elements.push(somervelleCountyData[0].data())
+            elements.push(somervelleCountyData[0] ? somervelleCountyData[0].data() : null)
         else
             elements.push(null)
 
@@ -133,27 +133,41 @@ const Home = ({isAdmin}) =>
             return <></>
 
         const element = podcastData[0] ? podcastData[0].data() : null;
-        const element2 = podcastData[1] ? podcastData[0].data() : null;
-        const element3 = podcastData[2] ? podcastData[0].data() : null;
+        const element2 = podcastData[1] ? podcastData[1].data() : null;
+        const element3 = podcastData[2] ? podcastData[2].data() : null;
 
         return(
             <PodcastSection
                 podOne={element}
                 podTwo={element2}
                 podThree={element3}
-                adOne={sponsorData[8] ? sponsorData[8].data() : null}
-                adTwo={sponsorData[9] ? sponsorData[9].data() : null}
-                adThree={sponsorData[10] ? sponsorData[10].data() : null}
-                adFour={sponsorData[11] ? sponsorData[11].data() : null}
+                adOne={sponsorData[12] ? sponsorData[12].data() : null}
+                adTwo={sponsorData[13] ? sponsorData[13].data() : null}
+                adThree={sponsorData[14] ? sponsorData[14].data() : null}
+                adFour={sponsorData[15] ? sponsorData[15].data() : null}
                 adLocation="home"
             />
         )
 
     }
 
+    const getAdSet = (first, second) => {
+
+        const ad3 = sponsorData[first] ? sponsorData[first].data() : null;
+        const ad4 = sponsorData[second] ? sponsorData[second].data() : null;
+
+        return(
+            <>
+                {ad3 && <Ad isAdmin={isAdmin} id={ad3.id} image={ad3.imageURL} path={ad3.websiteURL} adLocation={"home"} /> }
+                {ad4 && <Ad isAdmin={isAdmin} id={ad4.id} image={ad4.imageURL} path={ad4.websiteURL} adLocation={"home"} /> }
+            </>
+        )
+    }
+
     return(
         <>
             {isAdmin && <AddContentCard cardStyle={styles.card} path="/AddSponsor/:Home" action="Add Sponsor" />}
+            {isAdmin && <AddContentCard cardStyle={styles.card} path="/AddLongSponsor/:Home" action="Add Long Sponsor" />}
             
             {preparePublication()}
             
@@ -169,12 +183,10 @@ const Home = ({isAdmin}) =>
                 />
                 </div>
                 <div className={styles.adInner} id={styles.one}>
-                    <Ad image="https://picsum.photos/512" />
-                    <Ad image="https://picsum.photos/512" />
+                    {getAdSet(8, 9)}
                 </div>
                 <div className={styles.adInner} >
-                    <Ad image="https://picsum.photos/512" />
-                    <Ad image="https://picsum.photos/512" />
+                    {getAdSet(10, 11)}
                 </div>
             </section>
             <Header color="white" textStyle={styles.header + " " + styles.headerWithSpace}>Recent Podcasts</Header>
@@ -182,21 +194,19 @@ const Home = ({isAdmin}) =>
             <section className={styles.homeSection}>
                 <div className={styles.container}>
                     <ActionCard
-                        title="Do you like Texas History?"
-                        description="View our articles on historic locations in Texas."
-                        actionText="View Historic Articles"
+                        title="What are the best eats in Texas?"
+                        description="View our articles on amazing restaurant locations in Texas."
+                        actionText="View Tastes Articles"
                         cardStyle={styles.card}
-                        path="/Historic"
+                        path="/Tastes"
                         color="black"
                     />
                 </div>
                     <div className={styles.adInner} id={styles.one}>
-                        <Ad image="https://picsum.photos/512" />
-                        <Ad image="https://picsum.photos/512" />
+                        {getAdSet(16, 17)}
                     </div>
                     <div className={styles.adInner}>
-                        <Ad image="https://picsum.photos/512" />
-                        <Ad image="https://picsum.photos/512" />
+                        {getAdSet(18, 19)}
                 </div>
             </section>
             <PublicationSection />

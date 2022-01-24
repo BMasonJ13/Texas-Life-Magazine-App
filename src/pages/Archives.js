@@ -82,8 +82,9 @@ const Archives = ({isAdmin}) => {
         <>
         {isAdmin && 
                 <div >
-                    <AddContentCard cardStyle={styles.adminCard}  action={"Add Publication"} path="/AddPublication" />
-                    <AddContentCard cardStyle={styles.adminCard} action={"Add Sponsor"} path="/AddSponsor/:Archives" />
+                    {isAdmin && <AddContentCard cardStyle={styles.adminCard}  action={"Add Publication"} path="/AddPublication" /> }
+                    {isAdmin && <AddContentCard cardStyle={styles.adminCard} action={"Add Sponsor"} path="/AddSponsor/:Archives" /> }
+                    {isAdmin && <AddContentCard cardStyle={styles.adminCard} path="/AddLongSponsor/:Archives" action="Add Long Sponsor" />}
                 </div>
         }
         {

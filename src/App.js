@@ -1,4 +1,4 @@
-
+import React from 'react'
 import {useState} from 'react'
 
 //Pages
@@ -31,22 +31,28 @@ import AddArticle from './pages/admin/articles/AddArticle'
 import DeleteArticle from './pages/admin/articles/DeleteArticle'
 import View from './pages/View'
 
+import Success from './pages/customer/Success'
+
 //Components
 import BannerAd from './components/banner-ad/BannerAd'
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer'; 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
+const MP3Context = React.createContext();
+const MP3SetContext = React.createContext();
+
 function App() {
 
+  const [playing, setPlaying] = useState(true);
   const [isAdmin, setAdmin] = useState(false)
 
   return (
     <>
+      <MP3Context.Provider value={playing}>
+        <MP3SetContext.Provider value={setPlaying}>
       < BrowserRouter>
         {<BannerAd isAdmin={isAdmin}
-        topAd="https://picsum.photos/375/70"
-        bottomAd="https://picsum.photos/375/70"
         />}
         {<Navbar />}
         <Routes>
@@ -75,18 +81,32 @@ function App() {
           <Route exact path="/EditSponsor/:type/:id" element={<EditSponsor />} />
           <Route exact path="/DeleteSponsor/:type/:id" element={<DeleteSponsor />} />
 
+          <Route exact path="/AddLongSponsor/:type" element={<AddSponsor long/>} />
+          <Route exact path="/DeleteLongSponsor/:type/:id" element={<DeleteSponsor long/>} />
+
           <Route exact path="/AddArticle/:type" element={<AddArticle />} />
           <Route exact path="/DeleteArticle/:type/:id" element={<DeleteArticle />} />
 
           <Route exact path="/View/:type/:id" element={<View />} />
 
+          <Route exact path="/Success" element={<Success />} />
+          <Route exact path="/BigSuccess" element={<Success long />} />
+
           <Route exact path="/404" element={<h1>Whoops.</h1>} />
           <Route exact path="*" element={<Navigate replace to="/404" />} />
+          
         </Routes>
         <Footer />
       </BrowserRouter>
+        </MP3SetContext.Provider>
+      </MP3Context.Provider>
     </>
   );
 }
 
 export default App;
+
+export{
+  MP3Context,
+  MP3SetContext,
+}

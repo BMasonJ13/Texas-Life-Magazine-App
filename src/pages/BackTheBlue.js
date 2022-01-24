@@ -38,7 +38,6 @@ const BackTheBlue = ({ isAdmin }) => {
 
         for (let i = 0; i < data.size; i++) {
             pubDocs[i] = data.docs[i].data();
-            console.log(pubDocs[i]);
         }
 
         for (let i = 0; i < sponsorData.size; i++) {
@@ -84,6 +83,7 @@ const BackTheBlue = ({ isAdmin }) => {
         <>
             {isAdmin && <AddContentCard cardStyle={styles.card} action="Add Article" path="/AddArticle/:BackTheBlue" />}
             {isAdmin && <AddContentCard cardStyle={styles.card} path="/AddSponsor/:BackTheBlue" action="Add Sponsor" />}
+            {isAdmin && <AddContentCard cardStyle={styles.card} path="/AddLongSponsor/:BackTheBlue" action="Add Long Sponsor" />}
             {prepareData()}
         </>
     )

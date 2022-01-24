@@ -17,7 +17,7 @@ import PopUp from '../../../components/admin/PopUp'
 import styles from './DeleteSponsor.module.css'
 import Ad from "../../../components/ad/Ad"
 
-const DeleteSponsor = () => {
+const DeleteSponsor = ({long}) => {
 
     const { type, id } = useParams();
 
@@ -27,7 +27,7 @@ const DeleteSponsor = () => {
 
     const getData = async () => {
 
-        const json = await getDocument(`sponsor-${type.substring(1).toLowerCase()}`, id.substring(1))
+        const json = await getDocument(`sponsor${long ? "-long" : ""}-${type.substring(1).toLowerCase()}`, id.substring(1))
 
         setData(json);
     }
@@ -35,11 +35,11 @@ const DeleteSponsor = () => {
     const handleSubmit = async () => {
         setLoading(true)
 
-        await deleteDocument(`sponsor-${type.substring(1).toLowerCase()}`, id.substring(1), () => {
+        await deleteDocument(`sponsor-${long ? "long-" : ""}${type.substring(1).toLowerCase()}`, id.substring(1), () => {
             console.log("deleted.")
         })
 
-        deleteData(`sponsors/${type.substring(1).toLowerCase()}/${id.substring(1)}`, () => {
+        deleteData(`sponsors${long ? "-long" : ""}/${type.substring(1).toLowerCase()}/${id.substring(1)}`, () => {
                 setLoading(false)
                 history(`/${type.substring(1)}`);
         })
@@ -52,14 +52,15 @@ const DeleteSponsor = () => {
     }, [])
 
     return (
-        <div className={styles.container}>
+        <div className={long ? styles.longContainer : styles.container}>
             <PopUp loading={loading} />
             <Card cardStyle={styles.card}>
                 <Header>Are you sure?</Header>
                 <Subtitle textStyle={styles.title}>There is no going back from this.</Subtitle>
                 <FormButton textStyle={styles.button} onClick={handleSubmit} inputStyle={styles.button}>Delete</FormButton>
             </Card>
-            {data && <Ad  image={data.imageURL} path={data.websiteURL}/>}
+            {data && !long && <Ad image={data.imageURL} path={data.websiteURL}/>}
+            {data && long && <Ad long adStyle={styles.long} image={data.imageURL} path={data.websiteURL} />}
         </div>
     )
 

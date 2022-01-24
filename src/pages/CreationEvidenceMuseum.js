@@ -38,7 +38,6 @@ const CreationEvidenceMuseum = ({ isAdmin }) => {
 
         for (let i = 0; i < data.size; i++) {
             pubDocs[i] = data.docs[i].data();
-            console.log(pubDocs[i]);
         }
 
         for (let i = 0; i < sponsorData.size; i++) {
@@ -84,6 +83,7 @@ const CreationEvidenceMuseum = ({ isAdmin }) => {
         <>
             {isAdmin && <AddContentCard cardStyle={styles.card} action="Add Article" path="/AddArticle/:CreationEvidenceMuseum" />}
             {isAdmin && <AddContentCard cardStyle={styles.card} path="/AddSponsor/:CreationEvidenceMuseum" action="Add Sponsor" />}
+            {isAdmin && <AddContentCard cardStyle={styles.card} path="/AddLongSponsor/:CreationEvidenceMuseum" action="Add Long Sponsor" />}
             {prepareData()}
         </>
     )

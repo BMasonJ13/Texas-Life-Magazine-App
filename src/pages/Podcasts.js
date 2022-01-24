@@ -81,6 +81,7 @@ const Podcasts = ({isAdmin}) => {
         <>
             { isAdmin && <AddContentCard cardStyle={styles.adminCard} path="/AddPodcast" action="Add Podcast"/> }
             { isAdmin && <AddContentCard cardStyle={styles.adminCard} path="/AddSponsor/:Podcasts" action="Add Sponsor" /> } 
+            { isAdmin && <AddContentCard cardStyle={styles.adminCard} path="/AddLongSponsor/:Podcasts" action="Add Long Sponsor" />}
             { prepareData()}
         </>
     )

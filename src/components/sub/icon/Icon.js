@@ -17,10 +17,10 @@ const currentStyle = (color) => {
         return styles.black
 }
 
-const Icon = ({icon, color, iconStyle}) =>
+const Icon = ({icon, color, iconStyle, onClick}) =>
 {
 
-    return <FontAwesomeIcon className={currentStyle(color) + " " + iconStyle} icon={icon} />
+    return <FontAwesomeIcon onClick={onClick} className={currentStyle(color) + " " + iconStyle} icon={icon} />
 
 }
 
