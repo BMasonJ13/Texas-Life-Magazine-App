@@ -14,7 +14,6 @@ import PodcastSection from '../components/super/PodcastSection'
 import AddContentCard from '../components/admin/AddContentCard'
 import ActionCard from '../components/action-card/ActionCard';
 import Ad from '../components/ad/Ad'
-import NoFiles from '../components/nofiles-card/NoFiles'
 
 //Subcomponents
 import {Header} from '../components/sub/text/Text'
