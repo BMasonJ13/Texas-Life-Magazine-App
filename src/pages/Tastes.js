@@ -37,6 +37,9 @@ const Tastes = ({ isAdmin }) => {
         const pubDocs = [];
         const sponsorDocs = [];
 
+        if (sectionAmount === 0)
+            return <NoFiles />
+
         for (let i = 0; i < data.size; i++) {
             pubDocs[i] = data.docs[i].data();
         }
@@ -86,7 +89,6 @@ const Tastes = ({ isAdmin }) => {
             {isAdmin && <AddContentCard cardStyle={styles.card} path="/AddSponsor/:Tastes" action="Add Sponsor" />}
             {isAdmin && <AddContentCard cardStyle={styles.card} path="/AddLongSponsor/:Tastes" action="Add Long Sponsor" />}
             {prepareData()}
-            {data && !data[0] && <NoFiles />}
         </>
     )
 }
