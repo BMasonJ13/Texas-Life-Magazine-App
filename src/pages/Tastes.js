@@ -8,6 +8,7 @@ import ArticleSection from '../components/super/ArticleSection'
 
 //Components
 import AddContentCard from '../components/admin/AddContentCard';
+import NoFiles from '../components/nofiles-card/NoFiles'
 
 //CSS Modules
 import styles from './SomervelleCounty.module.css'
@@ -85,6 +86,7 @@ const Tastes = ({ isAdmin }) => {
             {isAdmin && <AddContentCard cardStyle={styles.card} path="/AddSponsor/:Tastes" action="Add Sponsor" />}
             {isAdmin && <AddContentCard cardStyle={styles.card} path="/AddLongSponsor/:Tastes" action="Add Long Sponsor" />}
             {prepareData()}
+            {data && !data[0] && <NoFiles />}
         </>
     )
 }

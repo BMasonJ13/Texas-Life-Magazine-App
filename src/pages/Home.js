@@ -14,6 +14,7 @@ import PodcastSection from '../components/super/PodcastSection'
 import AddContentCard from '../components/admin/AddContentCard'
 import ActionCard from '../components/action-card/ActionCard';
 import Ad from '../components/ad/Ad'
+import NoFiles from '../components/nofiles-card/NoFiles'
 
 //Subcomponents
 import {Header} from '../components/sub/text/Text'
@@ -80,7 +81,6 @@ const Home = ({isAdmin}) =>
             elements.push(somervelleCountyData[0] ? somervelleCountyData[0].data() : null)
         else
             elements.push(null)
-
 
         return(
             <>

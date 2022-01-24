@@ -8,6 +8,7 @@ import PublicationSection from '../components/super/PublicationSection'
 
 //Components
 import AddContentCard from '../components/admin/AddContentCard';
+import NoFiles from '../components/nofiles-card/NoFiles'
 
 //CSS Module
 import styles from './Archives.module.css'
@@ -35,6 +36,9 @@ const Archives = ({isAdmin}) => {
         const sections = [];
         const pubDocs = [];
         const sponsorDocs = [];
+
+        if(sectionAmount === 0)
+            return <NoFiles />
 
         for(let i = 0; i < data.size; i++){
             pubDocs[i] = data.docs[i].data();

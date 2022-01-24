@@ -8,6 +8,7 @@ import ArticleSection from '../components/super/ArticleSection'
 
 //Components
 import AddContentCard from '../components/admin/AddContentCard';
+import NoFiles from '../components/nofiles-card/NoFiles'
 
 //CSS Modules
 import styles from './SomervelleCounty.module.css'
@@ -35,6 +36,8 @@ const Music = ({ isAdmin }) => {
         const sections = [];
         const pubDocs = [];
         const sponsorDocs = [];
+        if (sectionAmount === 0)
+            return <NoFiles />
 
         for (let i = 0; i < data.size; i++) {
             pubDocs[i] = data.docs[i].data();
