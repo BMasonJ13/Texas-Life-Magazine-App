@@ -19,7 +19,7 @@ const Sponsorship = ({isAdmin}) => {
                 <a className={styles.button} href="https://buy.stripe.com/14k3fseB94K3eiIdQQ">Get Standard Ad</a>
             </Card>
             <Card color="black" cardStyle={styles.planContainer}>
-                <Subtitle color="black" textStyle={styles.header}>Delux Advertisment</Subtitle>
+                <Subtitle color="black" textStyle={styles.header}>Title Advertisment</Subtitle>
                 <Paragraph color="black" textStyle={styles.para}>Have an ad for your business on the top of a page of your choice.</Paragraph>
                 <a className={styles.blackButton} href="https://buy.stripe.com/14k3fseB94K3eiIdQQ">Get Delux Ad</a>
             </Card>
