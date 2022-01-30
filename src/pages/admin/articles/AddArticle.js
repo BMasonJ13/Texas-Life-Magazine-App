@@ -36,6 +36,7 @@ const AddArticle = () =>
 
     //Blog Stuff
     const [show, setShow] = useState(true)
+    // eslint-disable-next-line no-unused-vars
     const [count, setCount] = useState(12);
     const [sections, setSections] = useState([
         {

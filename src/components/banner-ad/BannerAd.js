@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import Ad from '../ad/Ad.js'
 
 import { getAds } from '../../pages/admin/utils/SectionDataUtil'
@@ -13,7 +13,6 @@ const BannerAd = ({isAdmin}) =>
 {
 
     const [path, setPath] = useState("home")
-    const {type} = useParams();
     const [sponsorData, setSponsorData] = useState(null);
     const location = useLocation();
 

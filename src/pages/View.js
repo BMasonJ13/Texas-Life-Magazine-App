@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 
 import { getDocument } from '../utils/Database';
 //Firestore
-import { getCards, getAds, sortByDate } from './admin/utils/SectionDataUtil'
+import { getAds } from './admin/utils/SectionDataUtil'
 import {Header} from '../components/sub/text/Text'
 
 import { useParams } from 'react-router-dom'

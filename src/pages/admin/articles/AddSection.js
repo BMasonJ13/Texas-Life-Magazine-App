@@ -11,6 +11,7 @@ import {sendData} from '../../../utils/Storage'
 import styles from './AddSection.module.css'
 const AddSection = ({id, index, setData}) => {
 
+    // eslint-disable-next-line no-unused-vars
     const [image, setImage] = useState(null)
     const [imageURL, setImageURL] = useState("")
     const [imageSize, setImageSize] = useState("small")
