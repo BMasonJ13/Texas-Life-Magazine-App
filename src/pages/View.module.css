@@ -4,7 +4,7 @@
     text-align: center;
     margin-top: 50px;
 
-    font-family: "LHF Boston Truckstyle";
+    font-family: var(--article-font);
 
     line-height: 3rem;
 }

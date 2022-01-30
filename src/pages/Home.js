@@ -58,26 +58,35 @@ const Home = ({isAdmin}) =>
     const prepareArticles = () => {
 
         const elements = [];
+        const type = [];
 
         if(!musicData)
 
         //I'm an idiot but I'm not changing it lol
-        if(musicData)
+        if(musicData){
             elements.push(musicData[0] ? musicData[0].data() : null)
+            type.push("music")
+        }
         else
             elements.push(null);
         
-        if(tastesData)
+        if(tastesData){
             elements.push(tastesData[0] ? tastesData[0].data() : null)
+            type.push("tastes")
+        }
         else
             elements.push(null);
         
-        if(backTheBlueData)
+        if(backTheBlueData){
             elements.push(backTheBlueData[0] ? backTheBlueData[0].data() : null)
+            type.push("backTheBlue")
+        }
         else
             elements.push(null)
-        if(somervelleCountyData)
+        if(somervelleCountyData){
             elements.push(somervelleCountyData[0] ? somervelleCountyData[0].data() : null)
+            type.push("somervelleCountyData")
+        }
         else
             elements.push(null)
 
@@ -86,10 +95,13 @@ const Home = ({isAdmin}) =>
                 <Header color="white" textStyle={styles.header}>Latest Articles</Header>
                 <ArticleSection
                     isAdmin={isAdmin}
-                    type="home"
+                    t1={type[0]}
                     art1={elements[0]}
+                    t2={type[1]}
                     art2={elements[1]}
+                    t3={type[2]}
                     art3={elements[2]}
+                    t4={type[3]}
                     art4={elements[3]}
                     ad1={sponsorData[4] ? sponsorData[4].data() : null}
                     ad2={sponsorData[5] ? sponsorData[5].data() : null}

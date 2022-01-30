@@ -7,7 +7,7 @@ import Ad from '../ad/Ad'
 //CSS Modules
 import styles from './ArticleSection.module.css'
 
-const ArticleSection = ({isAdmin, type, art1, art2, art3, art4, ad1, ad2, ad3, ad4, adLocation}) => 
+const ArticleSection = ({isAdmin, type, t1, t2, t3, t4, art1, art2, art3, art4, ad1, ad2, ad3, ad4, adLocation}) => 
 {
 
     return(
@@ -16,7 +16,7 @@ const ArticleSection = ({isAdmin, type, art1, art2, art3, art4, ad1, ad2, ad3, a
             <div className={styles.container}>
                 {art1 && <ArticleCard
                     id={art1.id}
-                    type={type}
+                    type={type ? type : t1}
                     isAdmin={isAdmin}
                     image={art1.coverURL}
                     title={art1.title}
@@ -26,7 +26,7 @@ const ArticleSection = ({isAdmin, type, art1, art2, art3, art4, ad1, ad2, ad3, a
                 /> }
                {art2 && <ArticleCard
                     id={art2.id}
-                    type={type}
+                    type={type ? type : t2}
                     isAdmin={isAdmin}
                     image={art2.coverURL}
                     title={art2.title}
@@ -46,7 +46,7 @@ const ArticleSection = ({isAdmin, type, art1, art2, art3, art4, ad1, ad2, ad3, a
             <div className={styles.container}>
                 {art3 && <ArticleCard
                     id={art3.id}
-                    type={type}
+                    type={type ? type : t3}
                     isAdmin={isAdmin}
                     image={art3.coverURL}
                     title={art3.title}
@@ -56,7 +56,7 @@ const ArticleSection = ({isAdmin, type, art1, art2, art3, art4, ad1, ad2, ad3, a
                 /> }
                 {art4 && <ArticleCard
                     id={art4.id}
-                    type={type}
+                    type={type ? type : t4}
                     isAdmin={isAdmin}
                     image={art4.coverURL}
                     title={art4.title}

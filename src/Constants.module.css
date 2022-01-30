@@ -1,6 +1,5 @@
 
-@import url(//db.onlinewebfonts.com/c/cb165eccbe0d0c449d4e13707d12a19e?family=LHF+Boston+Truckstyle);
-
+@import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
 :root{
 
     --website-font: Lato;
@@ -13,5 +12,5 @@
     --red: #D64550;
 
     --logo-red: #942824;
-    --article-font: "LHF Boston Truckstyle";
+    --article-font: Rye;
 }
