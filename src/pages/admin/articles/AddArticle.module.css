@@ -51,6 +51,9 @@
     max-height: 108px;
 }
 
+.imageInput{
+    width: 300px
+}
 
 .button{
     width: 60%;
@@ -71,4 +74,8 @@
 
 .show{
     display: block;
+}
+
+.header{
+    text-align: center;
 }

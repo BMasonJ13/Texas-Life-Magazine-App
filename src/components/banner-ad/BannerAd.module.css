@@ -27,6 +27,7 @@
 
     .bannerImage{
         width: 60%;
+        object-fit: fill;
     }
 
     .longAd{

@@ -1,0 +1,10 @@
+@import '../Constants.module.css';
+
+.header{
+    text-align: center;
+    margin-top: 50px;
+
+    font-family: "LHF Boston Truckstyle";
+
+    line-height: 3rem;
+}

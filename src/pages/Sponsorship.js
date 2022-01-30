@@ -21,13 +21,9 @@ const Sponsorship = ({isAdmin}) => {
             <Card color="black" cardStyle={styles.planContainer}>
                 <Subtitle color="black" textStyle={styles.header}>Title Advertisment</Subtitle>
                 <Paragraph color="black" textStyle={styles.para}>Have an ad for your business on the top of a page of your choice.</Paragraph>
-                <a className={styles.blackButton} href="https://buy.stripe.com/14k3fseB94K3eiIdQQ">Get Delux Ad</a>
+                <a className={styles.blackButton} href="https://buy.stripe.com/3cs9DQ0Kj7Wfb6waEF">Get Title Ad</a>
             </Card>
             </div>
-            <Card color="black" cardStyle={styles.plantContainer}>
-                <Subtitle color="black" textStyle={styles.header}>Cancel Advertisment</Subtitle>
-                <Paragraph color="black" textStyle={styles.para}>To cancel your adverstisment subsription please send an email to TexasLifeMag11@gmail.com</Paragraph>
-            </Card>
         </div>
     )
 }

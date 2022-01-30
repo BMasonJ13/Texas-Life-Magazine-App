@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import Ad from '../ad/Ad.js'
 
 import { getAds } from '../../pages/admin/utils/SectionDataUtil'
@@ -13,12 +13,16 @@ const BannerAd = ({isAdmin}) =>
 {
 
     const [path, setPath] = useState("home")
+    const {type} = useParams();
     const [sponsorData, setSponsorData] = useState(null);
     const location = useLocation();
 
     const getData = async () => {
-        if(!path.includes(":"))
+        if(path.includes("view"))
+            setSponsorData((await getAds(`sponsor-long-${path.substring(path.indexOf("/") + 1).substring(0, path.substring(path.indexOf("/") + 1).indexOf("/"))}`)).docs)
+        else
             setSponsorData((await getAds(`sponsor-long-${path}`)).docs)
+        console.log(path.substring(path.indexOf("/") + 1).substring(0, path.substring(path.indexOf("/") + 1).indexOf("/")))
     }
 
     useEffect(() => {

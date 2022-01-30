@@ -11,6 +11,7 @@ import CreationEvidenceMuseum from './pages/CreationEvidenceMuseum'
 import Archives from './pages/Archives'
 import Podcasts from './pages/Podcasts'
 import Sponsors from './pages/Sponsorship'
+import Travels from './pages/Travels'
 
 //Admin Pages
 import AdminLogin from './pages/admin/AdminLogin'
@@ -61,11 +62,12 @@ function App() {
           <Route exact path="/Music" element={<Music isAdmin={isAdmin} />} />
           <Route exact path="/Tastes" element={<Tastes isAdmin={isAdmin}/>} />
           <Route exact path="/BackTheBlue" element={<BackTheBlue isAdmin={isAdmin}/>} />
-          <Route exact path="/SomervelleCounty" element={<SomervelleCounty isAdmin={isAdmin}/>} />
+          <Route exact path="/SomervellCounty" element={<SomervelleCounty isAdmin={isAdmin}/>} />
           <Route exact path="/CreationEvidenceMuseum" element={<CreationEvidenceMuseum isAdmin={isAdmin} />} />
           <Route exact path="/Archives" element={<Archives isAdmin={isAdmin}/>} />
           <Route exact path="/Podcasts" element={<Podcasts isAdmin={isAdmin}/>} />
           <Route exact path="/Sponsors" element={<Sponsors isAdmin={isAdmin} />} />
+          <Route exact path="/Travels" element={<Travels isAdmin={isAdmin} /> } />
 
           <Route exact path="/Admin" element={<AdminLogin setTheAdmin={setAdmin}/>} />
 

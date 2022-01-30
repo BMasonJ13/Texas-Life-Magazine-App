@@ -13,14 +13,14 @@ import NoFiles from '../components/nofiles-card/NoFiles'
 //CSS Modules
 import styles from './SomervelleCounty.module.css'
 
-const SomervelleCounty = ({isAdmin}) => {
+const Travels = ({ isAdmin }) => {
 
     const [data, setData] = useState(null);
     const [sponsorData, setSponsorData] = useState(null);
 
     const getData = async () => {
-        setData(await getCards("Articles-somervellcounty"))
-        setSponsorData(await getAds("sponsor-somervellcounty"))
+        setData(await getCards("Articles-travels"))
+        setSponsorData(await getAds("sponsor-travels"))
     }
 
     useEffect(() => {
@@ -66,7 +66,7 @@ const SomervelleCounty = ({isAdmin}) => {
             }
             sections[i] = <ArticleSection
                 isAdmin={isAdmin}
-                type={"somervellcounty"}
+                type={"travels"}
                 key={i + " key"}
                 art1={docs[0]}
                 art2={docs[1]}
@@ -76,7 +76,7 @@ const SomervelleCounty = ({isAdmin}) => {
                 ad2={sponDocs[1]}
                 ad3={sponDocs[2]}
                 ad4={sponDocs[3]}
-                adLocation="somervellcounty"
+                adLocation="travels"
             />
         }
 
@@ -85,12 +85,12 @@ const SomervelleCounty = ({isAdmin}) => {
 
     return (
         <>
-           {isAdmin && <AddContentCard cardStyle={styles.card} action="Add Article" path="/AddArticle/:SomervellCounty"/> }
-           {isAdmin && <AddContentCard cardStyle={styles.card} path="/AddSponsor/:SomervellCounty" action="Add Sponsor" />} 
-           {isAdmin && <AddContentCard cardStyle={styles.card} path="/AddLongSponsor/:SomervellCounty" action="Add Long Sponsor" />}
-           {prepareData()}
+            {isAdmin && <AddContentCard cardStyle={styles.card} action="Add Article" path="/AddArticle/:Travels" />}
+            {isAdmin && <AddContentCard cardStyle={styles.card} path="/AddSponsor/:Travels" action="Add Sponsor" />}
+            {isAdmin && <AddContentCard cardStyle={styles.card} path="/AddLongSponsor/:Travels" action="Add Long Sponsor" />}
+            {prepareData()}
         </>
     )
 }
 
-export default SomervelleCounty
+export default Travels

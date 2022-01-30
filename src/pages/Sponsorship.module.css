@@ -3,7 +3,7 @@
 
 .container{
 
-    margin: 25px 100px 0 100px;
+    margin: 60px 100px 60px 100px;
     display: flex;
 
     justify-content: space-evenly;
@@ -14,7 +14,7 @@
     padding: 20px;
     text-align: center;
 
-    min-height: 200px;
+    height: 200px;
     max-width: 200px;
     display: flex;
     flex-direction: column;

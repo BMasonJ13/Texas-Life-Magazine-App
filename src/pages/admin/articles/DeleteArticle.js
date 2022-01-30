@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react"
 //Firebase - React Router Dom
 import { useParams, useNavigate } from 'react-router-dom'
 import { deleteDocument, getDocument } from '../../../utils/Database'
-import { deleteData } from "../../../utils/Storage"
 
 //Subcomponents
 import Card from '../../../components/sub/card/Card'
@@ -39,34 +38,8 @@ const DeletePublication = () => {
             console.log("deleted.")
         })
 
-        deleteData(`articles/${type.substring(1).toLowerCase()}/${id.substring(1)}/images/${id.substring(1)}0`, () => {
-            deleteData(`articles/${type.substring(1).toLowerCase()}/${id.substring(1)}/images/${id.substring(1)}1`, () => {
-                deleteData(`articles/${type.substring(1).toLowerCase()}/${id.substring(1)}/images/${id.substring(1)}2`, () => {
-                    deleteData(`articles/${type.substring(1).toLowerCase()}/${id.substring(1)}/images/${id.substring(1)}3`, () => {
-                        deleteData(`articles/${type.substring(1).toLowerCase()}/${id.substring(1)}/images/${id.substring(1)}4`, () => {
-                            deleteData(`articles/${type.substring(1).toLowerCase()}/${id.substring(1)}/images/${id.substring(1)}5`, () => {
-                                deleteData(`articles/${type.substring(1).toLowerCase()}/${id.substring(1)}/images/${id.substring(1)}6`, () => {
-                                    deleteData(`articles/${type.substring(1).toLowerCase()}/${id.substring(1)}/images/${id.substring(1)}7`, () => {
-                                        deleteData(`articles/${type.substring(1).toLowerCase()}/${id.substring(1)}/images/${id.substring(1)}8`, () => {
-                                            deleteData(`articles/${type.substring(1).toLowerCase()}/${id.substring(1)}/images/${id.substring(1)}9`, () => {
-                                                deleteData(`articles/${type.substring(1).toLowerCase()}/${id.substring(1)}/images/${id.substring(1)}10`, () => {
-                                                    deleteData(`articles/${type.substring(1).toLowerCase()}/${id.substring(1)}/images/${id.substring(1)}11`, () => {
-                                                        deleteData(`articles/${type.substring(1).toLowerCase()}/${id.substring(1)}/images/${id.substring(1)}12`, () => {
-                                                            setLoading(false)
-                                                            history(`/${type.substring(1)}`);
-                                                        })
-                                                    })
-                                                })
-                                            })
-                                        })
-                                    })
-                                })
-                            })
-                        })
-                    })
-                })
-            })
-        })
+        setLoading(false)
+        history(`/${type.substring(1)}`);
     }
 
     useEffect(() => {

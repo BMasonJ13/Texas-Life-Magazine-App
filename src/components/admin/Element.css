@@ -1,0 +1,21 @@
+
+@import '../../Constants.module.css';
+
+
+.small{
+    width: 150px;
+}
+
+.medium{
+    height: 150px;
+    width: 250px;
+}
+
+.large{
+    width: 300px;
+}
+
+.para{
+    margin: 10px 0;
+    text-align: left;
+}
