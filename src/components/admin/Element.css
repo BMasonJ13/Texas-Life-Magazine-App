@@ -18,4 +18,8 @@
 .para{
     margin: 10px 0;
     text-align: left;
+
+    font-family: 'Times New Roman', Times, serif;
+    font-size: .94rem;
+    line-height: 1.5em;
 }

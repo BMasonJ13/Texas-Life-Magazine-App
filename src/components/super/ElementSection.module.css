@@ -14,8 +14,14 @@
 
 .adInner{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     
+    min-width: 128px;
+    min-height: 128px;
+}
+
+.adInner#two{
+    margin-top: 20px;
 }
 
 @media(max-width: 1023px){
@@ -70,7 +76,8 @@
         align-content: space-between;
         margin: 0 auto;
 
-        min-width: 128px;
+        min-width: 156px;
+        min-height: 156px;
     }
 
     .adContainer#one{

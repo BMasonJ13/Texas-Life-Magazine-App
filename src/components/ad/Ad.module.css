@@ -19,8 +19,8 @@
 
 .squareImage{
     object-fit: cover;
-    width: 128px;
-    height: 128px;
+    width: 156px;
+    height: 156px;
 }
 
 .blankAdmin{
@@ -76,4 +76,17 @@
     min-width: 20px;
     margin-bottom: -4px;
     transition: 0.4s;
+}
+
+@media(max-width: 1024px){
+
+    .squareImage{
+
+        width: 128px;
+        height: 128px;
+
+        
+
+    }
+
 }
