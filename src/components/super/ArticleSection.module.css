@@ -17,12 +17,22 @@
     display: flex;
     justify-content: space-around;
     
-    min-width: 128px;
-    min-height: 128px;
+    max-height: 128px;
 }
 
 .adInner#two{
     margin-top: 20px;
+}
+
+.top{
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.notTop{
+    width: 50%;
+    margin: 0 auto;
 }
 
 
@@ -48,17 +58,19 @@
         align-items: space-around;
         align-content: space-around;
         justify-content: space-evenly;
+
     }
 
     .adInner{
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
-        align-content: space-between;
+        justify-items: space-around;
+        align-items: space-between;
         margin: 0 auto;
 
         min-width: 156px;
-        min-height: 156px;
+
+        min-height: 500px;
     }
 
     .adContainer#one{

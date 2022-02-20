@@ -17,10 +17,12 @@ const Podcasts = ({isAdmin}) => {
 
     const [data, setData] = useState(null);
     const [sponsorData, setSponsorData] = useState(null);
+    const [bannerData, setBannerData] = useState(null);
 
     const getData = async () => {
         setData(await getCards("Podcasts"))
         setSponsorData(await getAds("sponsor-podcasts"))
+        setBannerData(await getAds("sponsor-long-podcasts"))
     }
 
     useEffect(() => {
@@ -29,13 +31,14 @@ const Podcasts = ({isAdmin}) => {
 
     const prepareData = () => {
 
-        if (!data || !sponsorData)
+        if (!data || !sponsorData || !bannerData)
             return null;
 
         let sectionAmount = Math.ceil(data.size / 4);
         const sections = [];
         const pubDocs = [];
         const sponsorDocs = [];
+        const bannerDocs = [];
 
         if (sectionAmount === 0)
             return <NoFiles />
@@ -46,6 +49,10 @@ const Podcasts = ({isAdmin}) => {
 
         for (let i = 0; i < sponsorData.size; i++) {
             sponsorDocs[i] = sponsorData.docs[i].data();
+        }
+
+        for (let i = 0; i < bannerData.size; i++) {
+            bannerDocs[i] = bannerData.docs[i].data();
         }
 
         pubDocs.sort(sortByDate);
@@ -64,12 +71,18 @@ const Podcasts = ({isAdmin}) => {
                 else
                     sponDocs[j] = sponsorDocs[(i * 3) + j];
             }
+
+            const bannerAd = i > bannerDocs.size ? null : bannerDocs[i];
+
+
             sections[i] = <PodcastSection
                 isAdmin={isAdmin}
                 key={i + " key"}
                 podOne={docs[0]}
                 podTwo={docs[1]}
                 podThree={docs[2]}
+                bannerAd={bannerAd}
+                top={i === 0}
                 adOne={sponDocs[0]}
                 adTwo={sponDocs[1]}
                 adThree={sponDocs[2]}

@@ -12,9 +12,9 @@ const NoFiles = () => {
 
     return(
         <Card cardStyle={styles.card} color="black">
-            <Subtitle textStyle={styles.header}>Whoops!</Subtitle>
-            <Icon iconStyle={styles.icon} icon={Icons.faServer}></Icon>
-            <Paragraph textStyle={styles.para}>We couldn't find any data or it doesn't exist!</Paragraph>
+            <Subtitle textStyle={styles.header}>Coming Soon!</Subtitle>
+            <Icon iconStyle={styles.icon} icon={Icons.faClock}></Icon>
+            <Paragraph textStyle={styles.para}>&copy; Texas Life Magazine 2022</Paragraph>
         </Card>
     )
 

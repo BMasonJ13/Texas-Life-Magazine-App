@@ -17,10 +17,12 @@ const CreationEvidenceMuseum = ({ isAdmin }) => {
 
     const [data, setData] = useState(null);
     const [sponsorData, setSponsorData] = useState(null);
+    const [bannerData, setBannerData] = useState(null);
 
     const getData = async () => {
         setData(await getCards("Articles-creationevidencemuseum"))
         setSponsorData(await getAds("sponsor-creationevidencemuseum"))
+        setBannerData(await getAds("sponsor-long-creationevidencemuseum"))
     }
 
     useEffect(() => {
@@ -29,13 +31,14 @@ const CreationEvidenceMuseum = ({ isAdmin }) => {
 
     const prepareData = () => {
 
-        if (!data || !sponsorData)
+        if (!data || !sponsorData || !bannerData)
             return null;
 
         let sectionAmount = Math.ceil(data.size / 4);
         const sections = [];
         const pubDocs = [];
         const sponsorDocs = [];
+        const bannerDocs = [];
 
         if (sectionAmount === 0)
             return <NoFiles />
@@ -46,6 +49,10 @@ const CreationEvidenceMuseum = ({ isAdmin }) => {
 
         for (let i = 0; i < sponsorData.size; i++) {
             sponsorDocs[i] = sponsorData.docs[i].data();
+        }
+
+        for (let i = 0; i < bannerData.size; i++) {
+            bannerDocs[i] = bannerData.docs[i].data();
         }
 
         pubDocs.sort(sortByDate);
@@ -64,6 +71,10 @@ const CreationEvidenceMuseum = ({ isAdmin }) => {
                 else
                     sponDocs[j] = sponsorDocs[(i * 4) + j];
             }
+
+            const bannerAd = i > bannerDocs.size ? null : bannerDocs[i];
+
+
             sections[i] = <ArticleSection
                 isAdmin={isAdmin}
                 type={"creationevidencemuseum"}
@@ -72,6 +83,8 @@ const CreationEvidenceMuseum = ({ isAdmin }) => {
                 art2={docs[1]}
                 art3={docs[2]}
                 art4={docs[3]}
+                bannerAd={bannerAd}
+                top={i === 0}
                 ad1={sponDocs[0]}
                 ad2={sponDocs[1]}
                 ad3={sponDocs[2]}

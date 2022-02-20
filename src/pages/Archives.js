@@ -17,10 +17,14 @@ const Archives = ({isAdmin}) => {
 
     const [data, setData] = useState(null);
     const [sponsorData, setSponsorData] = useState(null);
+    const [bannerData, setBannerData] = useState(null);
+
 
     const getData = async () => {
         setData( await getCards("Publications"))
         setSponsorData( await getAds("sponsor-archives"))
+        setBannerData(await getAds("sponsor-long-archives"))
+
     }
 
     useEffect(() => {
@@ -29,13 +33,14 @@ const Archives = ({isAdmin}) => {
 
     const prepareData = () => {
         
-        if(!data || !sponsorData)
+        if(!data || !sponsorData || !bannerData)
             return null;
 
         let sectionAmount = Math.ceil(data.size / 4);
         const sections = [];
         const pubDocs = [];
         const sponsorDocs = [];
+        const bannerDocs = [];
 
         if(sectionAmount === 0)
             return <NoFiles />
@@ -46,6 +51,10 @@ const Archives = ({isAdmin}) => {
     
         for(let i = 0; i < sponsorData.size; i++){
             sponsorDocs[i] = sponsorData.docs[i].data();
+        }
+
+        for (let i = 0; i < bannerData.size; i++) {
+            bannerDocs[i] = bannerData.docs[i].data();
         }
 
         pubDocs.sort(sortByDate);
@@ -64,6 +73,9 @@ const Archives = ({isAdmin}) => {
                 else
                     sponDocs[j] = sponsorDocs[(i * 4) + j];          
             }
+
+            const bannerAd = i > bannerDocs.size ? null : bannerDocs[i];
+
             sections[i] = <PublicationSection 
                         isAdmin={isAdmin} 
                         key={i + " key"} 
@@ -71,6 +83,8 @@ const Archives = ({isAdmin}) => {
                         pubTwo={docs[1]}
                         pubThree={docs[2]}
                         pubFour={docs[3]} 
+                        bannerAd={bannerAd}
+                        top={i === 0}
                         adOne={sponDocs[0]}
                         adTwo={sponDocs[1]}
                         adThree={sponDocs[2]}

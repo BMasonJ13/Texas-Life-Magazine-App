@@ -25,6 +25,16 @@
     margin-top: 20px;
 }
 
+.top{
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.notTop{
+    width: 50%;
+    margin: 0 auto;
+}
 
 @media(min-width: 1024px){
     .homeSection{

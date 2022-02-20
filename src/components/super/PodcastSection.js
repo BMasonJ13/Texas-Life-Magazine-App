@@ -7,10 +7,12 @@ import Ad from '../ad/Ad'
 //CSS Modules
 import styles from './PodcastSection.module.css'
 
-const PodcastSection = ({isAdmin, podOne, podTwo, podThree, adOne, adTwo, adThree, adFour, adLocation}) =>
+const PodcastSection = ({isAdmin, podOne, podTwo, podThree, bannerAd, top, adOne, adTwo, adThree, adFour, adLocation}) =>
 {
 
     return(
+        <section>
+            {bannerAd && <div className={top ? styles.top : styles.notTop}><Ad isAdmin={isAdmin} long={true} id={bannerAd.id} image={bannerAd.imageURL} path={bannerAd.websiteURL} adLocation={adLocation} /></div>}
         <section className={styles.homeSection}>
             <div className={styles.container}>
                 { podOne &&  <PodcastCard
@@ -52,6 +54,7 @@ const PodcastSection = ({isAdmin, podOne, podTwo, podThree, adOne, adTwo, adThre
                 {adThree && <Ad isAdmin={isAdmin} id={adThree.id} image={adThree.imageURL} path={adThree.websiteURL} adLocation={adLocation} />}
                 {adFour && <Ad isAdmin={isAdmin} id={adFour.id} image={adFour.imageURL} path={adFour.websiteURL} adLocation={adLocation} />}
             </div>
+            </section>
         </section>
     )
 

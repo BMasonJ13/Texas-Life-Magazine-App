@@ -7,12 +7,15 @@ import Ad from '../ad/Ad'
 //CSS Modules
 import styles from './ArticleSection.module.css'
 
-const ArticleSection = ({isAdmin, type, t1, t2, t3, t4, art1, art2, art3, art4, ad1, ad2, ad3, ad4, adLocation}) => 
-{
+const ArticleSection = ({isAdmin, type, t1, t2, t3, t4, art1, art2, art3, art4, ad1, ad2, ad3, ad4, bannerAd, top, adLocation}) => 
+{ 
 
     return(
 
+        <section>
+        { bannerAd && <div className={top ? styles.top : styles.notTop}><Ad isAdmin={isAdmin} long={true} id={bannerAd.id} image={bannerAd.imageURL} path={bannerAd.websiteURL} adLocation={adLocation} /></div> }
         <section className={styles.homeSection}>
+          
             <div className={styles.container}>
                 {art1 && <ArticleCard
                     id={art1.id}
@@ -65,6 +68,7 @@ const ArticleSection = ({isAdmin, type, t1, t2, t3, t4, art1, art2, art3, art4, 
                     color={art4.color}
                 /> }
             </div>
+        </section>
         </section>
 
     )

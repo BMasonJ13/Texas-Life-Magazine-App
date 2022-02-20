@@ -32,11 +32,13 @@ const Home = ({isAdmin}) =>
     const [podcastData, setPodcastData] = useState(null)
 
     const [sponsorData, setSponsorData] = useState([]);
+    const [bannerData, setBannerData] = useState(null);
 
     const getData = async () => {
 
         setSponsorData((await getAds("sponsor-home")).docs)
         setPublicationData(await getRecentDocs("Publications"), 1)
+        setBannerData((await getAds("sponsor-long-home")).docs)
 
         sponsorData.sort(sortByDate).reverse()
 
@@ -60,8 +62,8 @@ const Home = ({isAdmin}) =>
         const elements = [];
         const type = [];
 
-        if(!musicData)
-
+        if(!musicData || !bannerData)
+            return;
         //I'm an idiot but I'm not changing it lol
         if(musicData){
             elements.push(musicData[0] ? musicData[0].data() : null)
@@ -103,6 +105,7 @@ const Home = ({isAdmin}) =>
                     art3={elements[2]}
                     t4={type[3]}
                     art4={elements[3]}
+                    bannerAd={bannerData[1] ? sponsorData[1]?.data() : null}
                     ad1={sponsorData[4] ? sponsorData[4].data() : null}
                     ad2={sponsorData[5] ? sponsorData[5].data() : null}
                     ad3={sponsorData[6] ? sponsorData[6].data() : null}
@@ -116,8 +119,8 @@ const Home = ({isAdmin}) =>
 
     const preparePublication = () => {
 
-        if(!publicationData)
-            return
+        if(!publicationData || !bannerData)
+            return <></>
 
         const element = publicationData[0] ? publicationData[0].data() : null;
         
@@ -128,6 +131,8 @@ const Home = ({isAdmin}) =>
                 <PublicationSection
                     isAdmin={isAdmin}
                     pubOne={element}
+                    bannerAd={bannerData[0] ? bannerData[0].data() : null}
+                    top={true}
                     adOne={sponsorData[0] ? sponsorData[0].data() : null}
                     adTwo={sponsorData[1] ? sponsorData[1].data() : null}
                     adThree={sponsorData[2] ? sponsorData[2].data() : null}
@@ -140,7 +145,7 @@ const Home = ({isAdmin}) =>
     }
 
     const preparePodcasts = () => {
-        if(!podcastData)
+        if(!podcastData || !bannerData)
             return <></>
 
         const element = podcastData[0] ? podcastData[0].data() : null;
@@ -152,6 +157,7 @@ const Home = ({isAdmin}) =>
                 podOne={element}
                 podTwo={element2}
                 podThree={element3}
+                bannerAd={bannerData[2] ? sponsorData[2]?.data() : null}
                 adOne={sponsorData[12] ? sponsorData[12].data() : null}
                 adTwo={sponsorData[13] ? sponsorData[13].data() : null}
                 adThree={sponsorData[14] ? sponsorData[14].data() : null}
