@@ -43,10 +43,10 @@ const Navbar = () =>
                     <Link onClick={closeDrawer} className={styles.navItem} to="/Tastes">Tastes</Link>
                     <Link onClick={closeDrawer} className={styles.navItem} to="/Travels">Travels</Link>
                     <Link onClick={closeDrawer} className={styles.navItem + " " + styles.blueLink} to="/BackTheBlue">Back the Blue</Link>
-                    <Link onClick={closeDrawer} className={styles.navItem} to="/CreationEvidenceMuseum">Creation Evidence Museum</Link>
+                    {/* <Link onClick={closeDrawer} className={styles.navItem} to="/CreationEvidenceMuseum">Creation Evidence Museum</Link> */}
                     <Link onClick={closeDrawer} className={styles.navItem} to="/SomervellCounty">Somervell County</Link>
-                    <Link onClick={closeDrawer} className={styles.navItem} to="/Archives">Archives</Link>
-                    <Link onClick={closeDrawer} className={styles.navItem} to="/Podcasts">Podcasts</Link>
+                    {/* <Link onClick={closeDrawer} className={styles.navItem} to="/Archives">Archives</Link>
+                    <Link onClick={closeDrawer} className={styles.navItem} to="/Podcasts">Podcasts</Link> */}
                     <Link onClick={closeDrawer} className={styles.navItem} to="/Sponsors">Sponsors</Link>
                 </div>
             </div>

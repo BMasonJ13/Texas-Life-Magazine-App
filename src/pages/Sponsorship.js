@@ -14,14 +14,9 @@ const Sponsorship = ({isAdmin}) => {
         <div>
         <div className={styles.container}>
             <Card cardStyle={styles.planContainer}>
-                <Subtitle textStyle={styles.header}>Standard Adverstisment</Subtitle>
-                <Paragraph textStyle={styles.para}>Have an ad for your business on a page of your choice.</Paragraph>
-                <a className={styles.button} href="https://buy.stripe.com/14k3fseB94K3eiIdQQ">Get Standard Ad</a>
-            </Card>
-            <Card color="black" cardStyle={styles.planContainer}>
-                <Subtitle color="black" textStyle={styles.header}>Title Advertisment</Subtitle>
-                <Paragraph color="black" textStyle={styles.para}>Have an ad for your business on the top of a page of your choice.</Paragraph>
-                <a className={styles.blackButton} href="https://buy.stripe.com/3cs9DQ0Kj7Wfb6waEF">Get Title Ad</a>
+                <Subtitle textStyle={styles.header}>Contact us to become a sponsor today</Subtitle>
+                <Paragraph textStyle={styles.para}>Creed Cahill, Editor</Paragraph>
+                <a className={styles.button} href="mailto:TexasLifeMag11@gmail.com">TexasLifeMag11@gmail.com</a>
             </Card>
             </div>
         </div>
